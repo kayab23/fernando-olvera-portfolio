@@ -1,6 +1,6 @@
 import markdown
 from reportlab.lib.pagesizes import A4
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, Image
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, Image, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.lib.colors import HexColor
@@ -110,31 +110,70 @@ def generate_recruiter_cv():
             story.append(Paragraph(title, title_style))
             story.append(Spacer(1, 8))
             
-            # Agregar foto después del título
-            foto_path = 'assets/foto.jpeg'
-            if os.path.exists(foto_path):
-                try:
-                    # Crear imagen con tamaño profesional (2x2 pulgadas)
-                    foto = Image(foto_path, width=2*inch, height=2*inch)
-                    foto.hAlign = 'CENTER'
-                    story.append(foto)
-                    story.append(Spacer(1, 10))
-                except Exception as e:
-                    print(f"⚠️ No se pudo cargar la foto: {e}")
-            else:
-                print(f"⚠️ Foto no encontrada en: {foto_path}")
-            
         elif line.startswith('### ') and 'Analista de Datos' in line:
             # Subtítulo profesional
             subtitle = line[4:].strip()
             story.append(Paragraph(subtitle, subtitle_style))
             story.append(Spacer(1, 15))
             
-        elif line.startswith('**📧') or line.startswith('**📱') or line.startswith('**📍') or line.startswith('**💼') or line.startswith('**🌐'):
-            # Información de contacto
-            clean_line = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', line)
-            clean_line = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2" color="blue">\1</a>', clean_line)
-            story.append(Paragraph(clean_line, contact_style))
+            # Crear header con foto a la izquierda y datos a la derecha
+            foto_path = 'assets/foto.jpeg'
+            if os.path.exists(foto_path):
+                try:
+                    # Crear imagen profesional
+                    foto = Image(foto_path, width=1.5*inch, height=1.5*inch)
+                    
+                    # Recopilar datos de contacto de las siguientes líneas
+                    contact_data = []
+                    temp_i = i + 1
+                    while temp_i < len(lines) and (lines[temp_i].startswith('**📧') or 
+                                                   lines[temp_i].startswith('**📱') or 
+                                                   lines[temp_i].startswith('**👤') or
+                                                   lines[temp_i].startswith('**📍') or 
+                                                   lines[temp_i].startswith('**💼') or 
+                                                   lines[temp_i].startswith('**🌐') or
+                                                   lines[temp_i].strip() == '---' or
+                                                   lines[temp_i].strip() == ''):
+                        contact_line = lines[temp_i].strip()
+                        if contact_line and not contact_line.startswith('---'):
+                            clean_line = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', contact_line)
+                            clean_line = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2" color="blue">\1</a>', clean_line)
+                            contact_data.append(clean_line)
+                        temp_i += 1
+                    
+                    # Crear párrafo con datos de contacto
+                    contact_text = '<br/>'.join(contact_data)
+                    contact_paragraph = Paragraph(contact_text, contact_style)
+                    
+                    # Crear tabla con foto y datos
+                    header_table = Table([[foto, contact_paragraph]], 
+                                        colWidths=[2*inch, 4.5*inch])
+                    header_table.setStyle(TableStyle([
+                        ('ALIGN', (0, 0), (0, 0), 'LEFT'),    # Foto a la izquierda
+                        ('ALIGN', (1, 0), (1, 0), 'LEFT'),    # Texto a la izquierda
+                        ('VALIGN', (0, 0), (-1, -1), 'TOP'),  # Alineación vertical superior
+                        ('LEFTPADDING', (0, 0), (-1, -1), 0),
+                        ('RIGHTPADDING', (0, 0), (-1, -1), 0),
+                        ('TOPPADDING', (0, 0), (-1, -1), 0),
+                        ('BOTTOMPADDING', (0, 0), (-1, -1), 10),
+                    ]))
+                    
+                    story.append(header_table)
+                    story.append(Spacer(1, 15))
+                    
+                    # Saltar las líneas de contacto ya procesadas
+                    i = temp_i - 1
+                    
+                except Exception as e:
+                    print(f"⚠️ Error creando header con foto: {e}")
+                    # Fallback: agregar solo subtítulo
+                    pass
+            else:
+                print(f"⚠️ Foto no encontrada: {foto_path}")
+            
+        elif line.startswith('**📧') or line.startswith('**📱') or line.startswith('**�') or line.startswith('**�📍') or line.startswith('**💼') or line.startswith('**🌐'):
+            # Información de contacto - ya procesada en el header con foto
+            pass
             
         elif line.startswith('| ') and '|' in line:
             # Procesar tabla de habilidades técnicas
