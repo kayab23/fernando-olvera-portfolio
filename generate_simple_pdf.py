@@ -97,34 +97,27 @@ def markdown_to_pdf_simple():
                     # Crear imagen profesional
                     foto = Image(foto_path, width=1.5*inch, height=1.5*inch)
                     
-                    # Recopilar datos de contacto
+                    # Recopilar SOLO los datos de contacto personal
                     contact_data = []
-                    temp_i = i + 1
-                    while temp_i < len(lines) and (lines[temp_i].startswith('**📧') or 
-                                                   lines[temp_i].startswith('**📱') or 
-                                                   lines[temp_i].startswith('**👤') or
-                                                   lines[temp_i].startswith('**📍') or 
-                                                   lines[temp_i].startswith('**💼') or 
-                                                   lines[temp_i].startswith('**🌐') or
-                                                   lines[temp_i].strip() == '---' or
-                                                   lines[temp_i].strip() == ''):
-                        contact_line = lines[temp_i].strip()
-                        if contact_line and not contact_line.startswith('---'):
+                    for line_idx, file_line in enumerate(lines[5:11]):  # Solo líneas 5-10 (datos de contacto)
+                        contact_line = file_line.strip()
+                        
+                        # Capturar solo datos de contacto personal
+                        if contact_line.startswith('**') and ':' in contact_line and any(word in contact_line.lower() for word in ['email', 'teléfono', 'edad', 'ubicación', 'linkedin', 'portfolio']):
                             clean_line = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', contact_line)
                             clean_line = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2" color="blue">\1</a>', clean_line)
                             contact_data.append(clean_line)
-                        temp_i += 1
                     
                     # Crear párrafo con datos de contacto
                     contact_text = '<br/>'.join(contact_data)
                     contact_paragraph = Paragraph(contact_text, contact_style)
                     
-                    # Crear tabla con foto y datos
-                    header_table = Table([[foto, contact_paragraph]], 
-                                        colWidths=[2*inch, 4.5*inch])
+                    # Crear tabla con TEXTO A LA IZQUIERDA y FOTO A LA DERECHA
+                    header_table = Table([[contact_paragraph, foto]], 
+                                        colWidths=[4.5*inch, 2*inch])
                     header_table.setStyle(TableStyle([
-                        ('ALIGN', (0, 0), (0, 0), 'LEFT'),
-                        ('ALIGN', (1, 0), (1, 0), 'LEFT'),
+                        ('ALIGN', (0, 0), (0, 0), 'LEFT'),    # Texto a la izquierda
+                        ('ALIGN', (1, 0), (1, 0), 'RIGHT'),   # Foto a la derecha
                         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
                         ('LEFTPADDING', (0, 0), (-1, -1), 0),
                         ('RIGHTPADDING', (0, 0), (-1, -1), 0),
@@ -135,15 +128,12 @@ def markdown_to_pdf_simple():
                     story.append(header_table)
                     story.append(Spacer(1, 12))
                     
-                    # Saltar líneas ya procesadas
-                    i = temp_i - 1
-                    
                 except Exception as e:
                     print(f"⚠️ Error cargando foto: {e}")
             else:
                 print(f"⚠️ Foto no encontrada: {foto_path}")
             
-        elif line.startswith('**📧') or line.startswith('**📱') or line.startswith('**�') or line.startswith('**�📍') or line.startswith('**💼') or line.startswith('**🌐'):
+        elif line.startswith('**') and ':' in line:
             # Información de contacto - ya procesada en el header
             pass
             

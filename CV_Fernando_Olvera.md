@@ -5,8 +5,8 @@
 
 **📧 Email:** Kayab2309@gmail.com  
 **📱 Teléfono:** 5583597359  
-**� Edad:** 51 años  
-**�📍 Ubicación:** Ciudad de México, México  
+**👤 Edad:** 51 años  
+**📍 Ubicación:** Ciudad de México, México  
 **💼 LinkedIn:** [www.linkedin.com/in/fernando-olvera-059739242](https://www.linkedin.com/in/fernando-olvera-059739242)  
 **🌐 Portfolio Web:** [https://fernando-olvera-portfolio.onrender.com](https://fernando-olvera-portfolio.onrender.com)
 
@@ -208,6 +208,29 @@ Sistema integral de análisis comercial con machine learning integration y autom
 - 📈 **Real-time Dashboards:** Live performance tracking con alertas automáticas
 
 **Resultados:** +28% team performance improvement, $180K+ incremento anual revenue, ROI 340%, 98% user adoption
+
+#### **Reporte Evolución Laboratorios - Sistema de Automatización de Reportes de Rechazos** | `GitHub Público` | `2025`
+**Repo:** [kayab23/Reporte_evolucion_laboratorios](https://github.com/kayab23/Reporte_evolucion_laboratorios) | **Tipo:** Business Intelligence Automation | **Estado:** Implementado y Funcional
+
+Sistema completo de automatización para reportes de evolución de métricas de laboratorios dentales con análisis comparativo temporal y visualizaciones profesionales.
+
+**Tecnologías utilizadas:** Python, openpyxl, matplotlib, pandas, numpy, markdown generation, Excel automation
+
+**Características principales:**
+- 📊 **Análisis Comparativo Temporal:** Evaluación de métricas agosto-septiembre-octubre 2025 con indicadores de tendencia
+- 📈 **Generación Automática de Gráficos:** Visualizaciones profesionales con colores suaves, leyendas optimizadas y líneas GOAL
+- 🏭 **Multi-laboratorio Support:** Análisis dinámico para 5 laboratorios (Mexico City, Tijuana, Guadalajara, Costa Rica, Colombia)
+- 📋 **Reportes Markdown Automáticos:** Exportación de análisis en formato markdown con tablas estructuradas
+- 🔍 **Análisis de Remakes:** Sistema especializado para análisis de tipos de transacción y motivos de rechazos por laboratorio
+- 💹 **Reportes de Ventas Mensuales:** Automatización de reportes de ventas y unidades con resúmenes por sitio y YTD
+
+**Arquitectura técnica:**
+- **Data Processing:** openpyxl para lectura de Excel, pandas para manipulación de datos complejos
+- **Visualization:** matplotlib con estilos profesionales, gráficos comparativos multi-mes con leyendas optimizadas
+- **Automation:** Scripts modulares para procesamiento de múltiples pestañas y laboratorios
+- **Reporting:** Generación automática de markdown con indicadores visuales de mejora/empeora/sin cambio
+
+**Resultados:** Sistema funcional con 80% automatización de reportes manuales, análisis detallado de 6 tablas fijas por laboratorio, identificación de patrones y tendencias operacionales
 
 Desarrollo de sistema automatizado para generación y distribución de reportes ejecutivos y operacionales.
 
