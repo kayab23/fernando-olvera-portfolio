@@ -5,7 +5,7 @@
 // Configuración de alertas
 const ALERT_CONFIG = {
     email: 'kayab2309@gmail.com',
-    formspreeEndpoint: 'https://formspree.io/f/mlderdpr' // Endpoint público temporal
+    formspreeEndpoint: 'https://formspree.io/f/xldppygg' // Tu endpoint real de Formspree
 };
 
 // Función principal para enviar alerta de visita

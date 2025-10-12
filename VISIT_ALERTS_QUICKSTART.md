@@ -9,11 +9,12 @@
 4. 📝 **Form name:** "Portfolio Visit Alerts"
 5. 📋 **Copy endpoint URL** (ejemplo: `https://formspree.io/f/mlderdpr`)
 
-### **Paso 2: Actualizar el código**
-En `website-portfolio/script.js` línea 8, reemplaza:
-```javascript
-formspreeEndpoint: 'https://formspree.io/f/TU_ENDPOINT_AQUI'
-```
+### **Paso 2: Configurar dominio (Opcional pero recomendado)**
+En Formspree, ve a **Settings** de tu form:
+1. 🔒 **"Restrict to domain":** `fernando-olvera-portfolio.onrender.com`
+2. ✅ **Save**
+
+Esto evita que otros sitios usen tu endpoint.
 
 **¡YA ESTÁ!** 🎉 Tu sistema de alertas está funcionando.
 
