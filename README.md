@@ -4,7 +4,34 @@
 
 ¡Bienvenido a mi portfolio profesional! Soy especialista en **Business Intelligence**, **análisis de datos** y **desarrollo de aplicaciones web progresivas (PWA)**, con experiencia comprobada en **Glidewell Dental** y **Procter & Gamble**.
 
-### 🌐 [🔗 Ver Portfolio Online](https://kayab23.github.io/fernando-olvera-portfolio)
+### 🌐 [🔗 Ver Portfolio Online](https://fernando-olvera-portfolio.onrender.com)
+
+---
+
+## 🎯 Características del Portfolio
+
+### ✅ **Portfolio Web Profesional**
+- **URL Permanente:** https://fernando-olvera-portfolio.onrender.com
+- **Always Online:** Sin límites de tiempo (24/7)
+- **Auto-Deploy:** Actualización automática desde GitHub
+- **Mobile Ready:** Diseño responsivo completo
+
+### ✅ **Sistema de Alertas de Visitas**
+- **Email automático** cuando alguien visita el portfolio
+- **Información detallada** del visitante (device, browser, location)
+- **Filtros anti-bot** y detección de interacción real
+- **Una alerta por día** por visitante único
+
+### ✅ **Keep-Alive Automático**
+- **GitHub Actions** mantiene el portfolio activo 24/7
+- **Ping cada 10 minutos** para evitar sleep mode
+- **Health checks** automáticos con reportes
+
+### ✅ **CV Actualizado con Portfolio**
+- **PDF profesional** con link al portfolio online
+- **Descarga directa:** https://fernando-olvera-portfolio.onrender.com/cv-fernando-olvera.pdf
+- **Habilidades técnicas** con niveles visuales
+- **Proyectos verificables** con código público
 
 ---
 
