@@ -1,4 +1,180 @@
-// Mobile Navigation Toggle
+// ========================================
+// 📧 SISTEMA DE ALERTAS DE VISITAS
+// ========================================
+
+// Configuración de alertas
+const ALERT_CONFIG = {
+    email: 'kayab2309@gmail.com',
+    formspreeEndpoint: 'https://formspree.io/f/mlderdpr' // Endpoint público temporal
+};
+
+// Función principal para enviar alerta de visita
+function sendVisitAlert() {
+    // Solo enviar una vez por sesión/día
+    const visitKey = 'portfolio_visit_' + new Date().toDateString();
+    if (sessionStorage.getItem(visitKey)) {
+        console.log('🔄 Visita ya registrada hoy');
+        return;
+    }
+
+    // Obtener información del visitante
+    const visitorInfo = getVisitorInfo();
+    
+    // Enviar alerta
+    sendEmailAlert(visitorInfo);
+}
+
+// Obtener información detallada del visitante
+function getVisitorInfo() {
+    const now = new Date();
+    const timeZone = 'America/Mexico_City';
+    
+    return {
+        timestamp: now.toLocaleString('es-MX', {
+            timeZone: timeZone,
+            year: 'numeric',
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        }),
+        url: window.location.href,
+        referrer: document.referrer || 'Acceso directo',
+        userAgent: navigator.userAgent,
+        language: navigator.language,
+        screenResolution: `${screen.width}x${screen.height}`,
+        viewport: `${window.innerWidth}x${window.innerHeight}`,
+        platform: navigator.platform,
+        device: getDeviceType(),
+        browser: getBrowserInfo(),
+        timezone: timeZone
+    };
+}
+
+// Detectar tipo de dispositivo
+function getDeviceType() {
+    const ua = navigator.userAgent;
+    if (/Mobile|Android|iPhone/.test(ua)) return '📱 Móvil';
+    if (/iPad|Tablet/.test(ua)) return '📱 Tablet';
+    return '💻 Desktop';
+}
+
+// Detectar información del navegador
+function getBrowserInfo() {
+    const ua = navigator.userAgent;
+    if (ua.includes('Chrome')) return '🌐 Chrome';
+    if (ua.includes('Firefox')) return '🔥 Firefox';
+    if (ua.includes('Safari')) return '🧭 Safari';
+    if (ua.includes('Edge')) return '🔷 Edge';
+    if (ua.includes('Opera')) return '🎭 Opera';
+    return '🔍 Otro';
+}
+
+// Enviar alerta por email usando Formspree
+function sendEmailAlert(visitorInfo) {
+    const emailData = {
+        _subject: `🚀 NUEVA VISITA en Portfolio Fernando Olvera - ${visitorInfo.timestamp}`,
+        _replyto: ALERT_CONFIG.email,
+        _template: 'box',
+        
+        // Información principal
+        mensaje: `
+🎯 NUEVO VISITANTE EN TU PORTFOLIO
+
+⏰ Fecha y Hora: ${visitorInfo.timestamp}
+🌐 URL Visitada: ${visitorInfo.url}
+🔗 Llegó desde: ${visitorInfo.referrer}
+
+📱 DISPOSITIVO:
+   • Tipo: ${visitorInfo.device}
+   • Navegador: ${visitorInfo.browser}
+   • Plataforma: ${visitorInfo.platform}
+   • Resolución: ${visitorInfo.screenResolution}
+   • Ventana: ${visitorInfo.viewport}
+   • Idioma: ${visitorInfo.language}
+
+🚀 ¡Tu portfolio está generando interés!
+📊 Ver analytics: https://fernando-olvera-portfolio.onrender.com
+
+--
+Sistema de alertas automáticas
+Portfolio Fernando Olvera Rendón
+        `,
+        
+        // Datos estructurados para análisis
+        visitor_time: visitorInfo.timestamp,
+        visitor_url: visitorInfo.url,
+        visitor_referrer: visitorInfo.referrer,
+        visitor_device: visitorInfo.device,
+        visitor_browser: visitorInfo.browser,
+        visitor_platform: visitorInfo.platform,
+        visitor_screen: visitorInfo.screenResolution,
+        visitor_language: visitorInfo.language
+    };
+
+    // Enviar via Formspree
+    fetch(ALERT_CONFIG.formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(emailData)
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('✅ Alerta de visita enviada exitosamente');
+            
+            // Marcar como enviado
+            const visitKey = 'portfolio_visit_' + new Date().toDateString();
+            sessionStorage.setItem(visitKey, 'sent');
+            
+            // Opcional: Google Analytics event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'visit_alert_sent', {
+                    'event_category': 'engagement',
+                    'event_label': 'email_notification'
+                });
+            }
+        } else {
+            console.log('⚠️ Respuesta no exitosa:', response.status);
+        }
+    })
+    .catch(error => {
+        console.log('❌ Error enviando alerta:', error);
+    });
+}
+
+// Inicializar sistema de alertas
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 Sistema de alertas iniciado...');
+    
+    // Enviar alerta después de 3 segundos (para filtrar bots)
+    setTimeout(() => {
+        // Solo enviar si el usuario interactúa o permanece en la página
+        sendVisitAlert();
+    }, 3000);
+    
+    // También enviar si hay interacción del usuario
+    let userInteracted = false;
+    const interactionEvents = ['scroll', 'click', 'keydown', 'mousemove'];
+    
+    interactionEvents.forEach(event => {
+        document.addEventListener(event, function() {
+            if (!userInteracted) {
+                userInteracted = true;
+                setTimeout(() => {
+                    sendVisitAlert();
+                }, 1000);
+            }
+        }, { once: true });
+    });
+});
+
+// ========================================
+// 📱 NAVEGACIÓN MÓVIL
+// ========================================
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
