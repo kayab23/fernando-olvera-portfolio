@@ -1,0 +1,56 @@
+name: 🚀 Keep Portfolio Alive
+
+on:
+  schedule:
+    # Ping cada 10 minutos para mantener activo
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+    # Permite ejecutar manualmente
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 🔄 Ping Portfolio
+        run: |
+          echo "🌐 Haciendo ping al portfolio..."
+          
+          # Ping principal
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://fernando-olvera-portfolio.onrender.com)
+          
+          if [ $response -eq 200 ]; then
+            echo "✅ Portfolio activo - Status: $response"
+            echo "⏰ Timestamp: $(date)"
+          else
+            echo "⚠️ Status code: $response"
+            # Reintentar después de 30 segundos
+            sleep 30
+            response2=$(curl -s -o /dev/null -w "%{http_code}" https://fernando-olvera-portfolio.onrender.com)
+            echo "🔄 Segundo intento - Status: $response2"
+          fi
+          
+          # Ping adicional a páginas importantes
+          echo "📄 Verificando páginas principales..."
+          curl -s -I https://fernando-olvera-portfolio.onrender.com/cv-fernando-olvera.pdf
+          
+          echo "🎯 Keep-alive completado exitosamente"
+
+      - name: 📊 Portfolio Health Check
+        run: |
+          echo "🔍 Verificando salud del portfolio..."
+          
+          # Verificar tiempo de respuesta
+          response_time=$(curl -s -o /dev/null -w "%{time_total}" https://fernando-olvera-portfolio.onrender.com)
+          echo "⚡ Tiempo de respuesta: ${response_time}s"
+          
+          # Verificar que el contenido principal esté disponible
+          content_check=$(curl -s https://fernando-olvera-portfolio.onrender.com | grep -c "Fernando Olvera" || echo "0")
+          
+          if [ $content_check -gt 0 ]; then
+            echo "✅ Contenido verificado correctamente"
+          else
+            echo "⚠️ Problema detectado en el contenido"
+          fi
+          
+          echo "📈 Health check completado"

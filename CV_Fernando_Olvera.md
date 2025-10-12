@@ -6,7 +6,8 @@
 **📧 Email:** Kayab2309@gmail.com  
 **📱 Teléfono:** 5583597359  
 **📍 Ubicación:** Ciudad de México, México  
-**💼 LinkedIn:** [www.linkedin.com/in/fernando-olvera-059739242](https://www.linkedin.com/in/fernando-olvera-059739242)
+**💼 LinkedIn:** [www.linkedin.com/in/fernando-olvera-059739242](https://www.linkedin.com/in/fernando-olvera-059739242)  
+**🌐 Portfolio Web:** [https://fernando-olvera-portfolio.onrender.com](https://fernando-olvera-portfolio.onrender.com)
 
 ---
 
