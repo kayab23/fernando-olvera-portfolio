@@ -1,10 +1,11 @@
 import markdown
 from reportlab.lib.pagesizes import A4
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.lib.colors import HexColor
 import re
+import os
 
 def markdown_to_pdf_simple():
     """Convierte markdown a PDF usando ReportLab"""
@@ -82,6 +83,20 @@ def markdown_to_pdf_simple():
             title = line[2:].strip()
             story.append(Paragraph(title, title_style))
             story.append(Spacer(1, 6))
+            
+            # Agregar foto profesional después del título
+            foto_path = 'assets/foto.jpeg'
+            if os.path.exists(foto_path):
+                try:
+                    # Imagen profesional de 2x2 pulgadas, centrada
+                    foto = Image(foto_path, width=2*inch, height=2*inch)
+                    foto.hAlign = 'CENTER'
+                    story.append(foto)
+                    story.append(Spacer(1, 8))
+                except Exception as e:
+                    print(f"⚠️ Error cargando foto: {e}")
+            else:
+                print(f"⚠️ Foto no encontrada: {foto_path}")
             
         elif line.startswith('### ') and 'Analista de Datos' in line:
             # Subtítulo

@@ -1,10 +1,11 @@
 import markdown
 from reportlab.lib.pagesizes import A4
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, Image
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.lib.colors import HexColor
 import re
+import os
 
 def generate_recruiter_cv():
     """Generar CV optimizado para reclutadores con formato profesional"""
@@ -108,6 +109,20 @@ def generate_recruiter_cv():
             title = line[2:].strip()
             story.append(Paragraph(title, title_style))
             story.append(Spacer(1, 8))
+            
+            # Agregar foto después del título
+            foto_path = 'assets/foto.jpeg'
+            if os.path.exists(foto_path):
+                try:
+                    # Crear imagen con tamaño profesional (2x2 pulgadas)
+                    foto = Image(foto_path, width=2*inch, height=2*inch)
+                    foto.hAlign = 'CENTER'
+                    story.append(foto)
+                    story.append(Spacer(1, 10))
+                except Exception as e:
+                    print(f"⚠️ No se pudo cargar la foto: {e}")
+            else:
+                print(f"⚠️ Foto no encontrada en: {foto_path}")
             
         elif line.startswith('### ') and 'Analista de Datos' in line:
             # Subtítulo profesional
