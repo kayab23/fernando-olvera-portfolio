@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fernando Olvera Rendón - Data Analyst & PWA Developer</title>
+    <meta name="description" content="Data Analyst con experiencia en PWA, Python, Power BI y análisis de datos. Especialista en desarrollo de aplicaciones web progresivas.">
+    <meta name="keywords" content="Data Analyst, PWA, Python, Power BI, Tableau, SQL, Fernando Olvera">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Fernando Olvera</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">Sobre mí</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#dashboards" class="nav-link">Dashboards</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Fernando Olvera Rendón</h1>
+                    <h2 class="hero-subtitle">Data Analyst & PWA Developer</h2>
+                    <p class="hero-description">
+                        Especialista en análisis de datos con 6+ años de experiencia. 
+                        Desarrollo de aplicaciones web progresivas (PWA) y soluciones de Business Intelligence.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
+                        <a href="cv-fernando-olvera.pdf" class="btn btn-secondary" target="_blank">
+                            <i class="fas fa-download"></i> Descargar CV
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">6+</span>
+                            <span class="stat-label">Años de experiencia</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Proyectos completados</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">PWAs desarrolladas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="foto.jpeg" alt="Fernando Olvera" class="profile-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre mí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Soy un analista de datos apasionado por transformar información en insights accionables. 
+                        Con más de 6 años de experiencia, he trabajado con empresas como <strong>Procter & Gamble</strong> 
+                        y <strong>Glidewell</strong>, desarrollando soluciones innovadoras que optimizan procesos de negocio.
+                    </p>
+                    <p>
+                        Mi expertise incluye el desarrollo de <strong>Progressive Web Applications (PWA)</strong>, 
+                        análisis avanzado de datos con Python, y creación de dashboards interactivos con Power BI y Tableau.
+                    </p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>💻 Programación</h3>
+                        <div class="skill-item">
+                            <span>Python</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 50%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>SQL</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 50%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>JavaScript</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 60%"></div></div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>📊 Análisis de Datos</h3>
+                        <div class="skill-item">
+                            <span>Power BI</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 60%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Tableau</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 60%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>ETL</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 60%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="projects-grid">
+                
+                <!-- FTA Dashboard GPS Real -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-map-marker-alt project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">FTA Dashboard - Sistema GPS Real-time</h3>
+                        <p class="project-description">
+                            Sistema completo de seguimiento GPS con WebSocket, PWA móvil, analytics avanzados 
+                            y geofencing. 98 commits, completamente funcional con 25+ APIs REST.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python Flask</span>
+                            <span class="tech-tag">WebSocket</span>
+                            <span class="tech-tag">PWA</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">Leaflet.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/kayab23/app_visitas" class="btn-link" target="_blank">
+                                <i class="fab fa-github"></i> GitHub Público
+                            </a>
+                            <a href="https://github.com/kayab23/app_visitas#-fta-dashboard---sistema-gps-de-seguimiento-de-representantes" class="btn-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BMW Tablero Real -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-car project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">BMW Tablero - Analytics Automotriz</h3>
+                        <p class="project-description">
+                            Dashboard integral BMW con análisis por modelo, dealers, rentabilidad y market share. 
+                            DAX avanzado, what-if parameters y mobile optimization.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">DAX Avanzado</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">Custom Visuals</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="mailto:Kayab2309@gmail.com?subject=Demo BMW Dashboard" class="btn-link">
+                                <i class="fas fa-envelope"></i> Solicitar Demo
+                            </a>
+                            <a href="#powerbi-dashboards" class="btn-link">
+                                <i class="fas fa-chart-line"></i> Ver Detalles
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ventas Mario Real -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Ventas Mario - Sales Performance Analytics</h3>
+                        <p class="project-description">
+                            Sistema comercial con ML integration, territory optimization, commission automation 
+                            y real-time performance tracking. ROI 340% en primer año.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">CRM Integration</span>
+                            <span class="tech-tag">Predictive Analytics</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="mailto:Kayab2309@gmail.com?subject=Demo Ventas Dashboard" class="btn-link">
+                                <i class="fas fa-envelope"></i> Solicitar Demo
+                            </a>
+                            <a href="#powerbi-dashboards" class="btn-link">
+                                <i class="fas fa-external-link-alt"></i> Ver Casos de Uso
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Automated Reporting -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Automatización de Reportes</h3>
+                        <p class="project-description">
+                            Sistema automatizado para generación y distribución de reportes ejecutivos 
+                            con dashboards interactivos y análisis de KPIs.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/tu-usuario/automated-reporting" class="btn-link" target="_blank">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                            <a href="#dashboards" class="btn-link">
+                                <i class="fas fa-chart-bar"></i> Ver Dashboards
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboards Section -->
+    <section id="powerbi-dashboards" class="dashboards">
+        <div class="container">
+            <h2 class="section-title">Power BI Dashboards Reales</h2>
+            <p class="section-subtitle">Proyectos empresariales implementados con impacto financiero medible</p>
+            
+            <div class="dashboard-grid">
+                <div class="dashboard-item">
+                    <div class="dashboard-preview">
+                        <div class="dashboard-placeholder">
+                            <i class="fas fa-car dashboard-icon-large"></i>
+                        </div>
+                        <div class="dashboard-overlay">
+                            <a href="mailto:Kayab2309@gmail.com?subject=Demo BMW Dashboard" class="btn btn-white">
+                                <i class="fas fa-envelope"></i> Solicitar Demo
+                            </a>
+                        </div>
+                    </div>
+                    <h3>BMW Tablero - Analytics Automotriz</h3>
+                    <p><strong>Resultado:</strong> +22% visibilidad dealers, $280K+ incremento anual. DAX avanzado, market share analysis, what-if scenarios para pricing optimization.</p>
+                    <div class="dashboard-tech">
+                        <span class="tech-badge">Power BI</span>
+                        <span class="tech-badge">DAX Avanzado</span>
+                        <span class="tech-badge">Custom Visuals</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-item">
+                    <div class="dashboard-preview">
+                        <div class="dashboard-placeholder">
+                            <i class="fas fa-chart-line dashboard-icon-large"></i>
+                        </div>
+                        <div class="dashboard-overlay">
+                            <a href="mailto:Kayab2309@gmail.com?subject=Demo Ventas Dashboard" class="btn btn-white">
+                                <i class="fas fa-envelope"></i> Solicitar Demo
+                            </a>
+                        </div>
+                    </div>
+                    <h3>Ventas Mario - Performance Comercial</h3>
+                    <p><strong>Resultado:</strong> +28% team performance, $180K+ revenue increment, ROI 340%. ML integration, predictive analytics, commission automation.</p>
+                    <div class="dashboard-tech">
+                        <span class="tech-badge">Machine Learning</span>
+                        <span class="tech-badge">Predictive Analytics</span>
+                        <span class="tech-badge">CRM Integration</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-item">
+                    <div class="dashboard-preview">
+                        <div class="dashboard-placeholder">
+                            <i class="fab fa-github dashboard-icon-large"></i>
+                        </div>
+                        <div class="dashboard-overlay">
+                            <a href="https://github.com/kayab23/app_visitas" class="btn btn-white" target="_blank">
+                                <i class="fab fa-github"></i> Ver Código
+                            </a>
+                        </div>
+                    </div>
+                    <h3>FTA Dashboard - Sistema GPS Completo</h3>
+                    <p><strong>Open Source:</strong> Sistema completo con 98 commits, WebSocket real-time, PWA móvil, 25+ APIs REST. Geofencing, analytics y reportes automáticos.</p>
+                    <div class="dashboard-tech">
+                        <span class="tech-badge">Python Flask</span>
+                        <span class="tech-badge">WebSocket</span>
+                        <span class="tech-badge">PWA Mobile</span>
+                    </div>
+                </div>
+                    <h3>Dashboard Ejecutivo</h3>
+                    <p>KPIs estratégicos y métricas de alto nivel para toma de decisiones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>Kayab2309@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Teléfono</h3>
+                            <p>5583597359</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Ubicación</h3>
+                            <p>Ciudad de México, México</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h3>LinkedIn</h3>
+                            <p><a href="https://www.linkedin.com/in/fernando-olvera-059739242" target="_blank">fernando-olvera-059739242</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-cta">
+                    <h3>¿Listo para colaborar?</h3>
+                    <p>Estoy disponible para proyectos de análisis de datos, desarrollo de PWAs y consultoría en Business Intelligence.</p>
+                    <a href="mailto:Kayab2309@gmail.com" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Enviar Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Fernando Olvera Rendón. Todos los derechos reservados.</p>
+            <p>Desarrollado con ❤️ usando tecnologías web modernas.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

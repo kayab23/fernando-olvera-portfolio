@@ -1,0 +1,104 @@
+
+--- PÁGINA 1 ---
+FERNANDO OLVERA RENDON
+ANALISTA DE DATOS
+Kayab2309@gmail.com
+5583597359
+Edad- 50
+www.linkedin.com/in/fernando-olvera-059739242
+ACERCA DE MÍ
+Profesional con mas de 5 años experiencia en análisis de datos, extracción, transformación y carga de datos, consultas y análisis SQL.
+Sólidas habilidades en Power BI para visualizaciones interactivas y paneles de control. Dominio avanzado de Excel para análisis y
+automatización. Desarrollo en Python para procesar, visualizar y analizar datos, generando insights relevantes para la toma de decisiones
+basada en datos.
+EDUCACIÓN
+IDIOMAS
+Bachillerato Tecnico
+Español ( NATIVO )
+2017 - 2020
+Inglés ( Basico Nivel A2 Dispuesto al aprendizaje)
+Cursos Formacion especializado
+Certificación Google como Analista de Datos
+(octubre 2023)
+Certificación de competencias Microsoft EXPERIENCIA PROFESIONAL
+Secretaría del Trabajo (2018)
+Constancia de conocimiento y habilidades Excel
+Analista de Datos
+avanzado CECATI 171 (2018)
+Certificación de conocimiento y habilidades en
+Corus Consulting, Inc. - Octubre 2023 a Mayo -2024
+Python (enero 2024)
+Certificación desarrollo WEB con HTML y CSS Responsabilidades: Optimización de procesos de conciliación bancaria mediante el
+(mayo 2023) análisis de discrepancias y la implementación de soluciones automatizadas. Identificación
+de patrones y tendencias relevantes en grandes conjuntos de datos para la toma de
+Certificación en Bases de Datos (septiembre
+2023) decisiones estratégicas. Creación de reportes dinámicos e interactivos utilizando Python,
+visualizando datos de manera efectiva. Carga, descarga y transformación de datos en la
+Diploma de conocimiento y habilidades en Bases
+nube utilizando AWS S3 y otros servicios de AWS. Extracción y análisis de información
+de datos CECATI 171
+crítica de bases de datos relacionales para respaldar iniciativas comerciales. Generación
+En curso Python para Ciencia de Datos 120
+de una amplia gama de informes para diversos departamentos, incluyendo finanzas.
+horas de formacion
+Extracción de insights valiosos de conjuntos de datos complejos utilizando técnicas de
+HABILIDADES
+análisis estadístico y de machine learning. Trabajo en equipo para el desarrollo y
+Resolución de Problemas.
+mantenimiento de proyectos utilizando herramientas de control de versiones como Git.
+Comunicación Efectiva.
+Analista de Datos
+Liderazgo.
+Trabajo en Equipo. Especialistas Contacto Directo, Inc. - Agosto 2022 a Agosto -2023
+Adaptabilidad.
+Responsabilidades: Implementación del proceso de Extracción, Transformación y Carga
+Organización y Planificación. (ETL) de datos, asegurando la calidad y consistencia de la información. Limpieza y
+normalización de datos con SQL para crear bases de datos confiables y precisas para su
+HABILIDADES TECNICAS
+posterior análisis. Desarrollo, mantenimiento y modificación de tableros interactivos
+Análisis de Datos: ETL, análisis de datos, utilizando Power BI para visualizar y comunicar datos y métricas relevantes para el
+negocio. Seguimiento en tiempo real de ventas, llamadas y tiempos de ejecutivos para la
+identificación de patrones, tendencias.
+toma de decisiones informadas y la mejora continua de los procesos del centro de
+Programación: Python, SQL, HTML, CSS. llamadas. Extracción de datos de diversas fuentes para realizar análisis detallados de las
+Visualización: Power BI, Matplotlib, Seaborn. medidas relacionadas con el centro de llamadas. Realización de actividades con Python
+utilizando pandas para explorar, filtrar, manipular, transformar y resumir datos. Creación
+Bases de Datos: MySQL, PostgreSQL, SQL server
+de gráficos y visualizaciones atractivas con Matplotlib o Seaborn para comprender mejor
+Control de Versiones: Git.
+los datos.
+Nube: AWS.
+--- PÁGINA 2 ---
+EXPERIENCIA PROFESIONAL
+Analista de Datos
+Juridico Colemart, Inc. - Abril 2021 a Agosto -2022
+Desempeñé una serie de responsabilidades clave. Me encargué de la limpieza y normalización de bases de datos,
+asegurando la calidad y consistencia de la información. Además, tuve la oportunidad de crear y enviar campañas
+masivas utilizando diferentes canales de comunicación, como SMS, EMAIL, BLASTER, WHATSAPP y PREDICTIVO.
+Realicé un análisis exhaustivo del impacto de estas campañas, evaluando su efectividad y generando informes
+detallados. También me ocupé de la administración de cartera, generando reportes diarios, semanales y mensuales para
+evaluar los resultados obtenidos. Brindé apoyo al área operativa implementando estrategias de contacto efectivas. Esto
+incluyó el seguimiento de los resultados de pagos y promesas, asegurando un flujo adecuado en los procesos
+financieros. Además, resolví problemas administrativos y operacionales que surgieron durante el desarrollo de las
+actividades. Finalmente, como parte de mi rol, generé reportes mensuales de resultados para proporcionar una visión
+global de los logros alcanzados al cierre de cada periodo.
+Analista de Datos
+Consorcio Juridico, Inc. - Septiembre 2018 a Agosto -2021
+Llevé a cabo diversas tareas clave. Esto incluyó la limpieza y normalización de bases de datos para garantizar la
+integridad de la información. También realicé consultas CRM CYBER y segmenté datos para optimizar los procesos.
+Generé reportes gerenciales y participé en la implementación de campañas masivas, asegurando una comunicación
+efectiva con los clientes. Además, me encargué de cargar listas en predictivo y enviar convenios, contribuyendo a la
+resolución de casos. Analizar el impacto de las campañas fue una parte fundamental de mi rol, evaluando su efectividad
+y realizando ajustes según los resultados obtenidos. Administré la cartera y generé reportes diarios, semanales y
+mensuales para mantener un seguimiento exhaustivo de los resultados. Al finalizar cada mes, generé reportes
+detallados de los resultados obtenidos para proporcionar una visión global del rendimiento del equipo.
+Tecnico Operador de Produccion
+Procter & Gamble, Inc. - Marzo 2003 a Julio -2012
+Desempeñé un papel fundamental en la supervisión de las líneas de producción. Coordiné y supervisé las operaciones
+diarias para garantizar la eficiencia y calidad del proceso. Una parte importante de mi responsabilidad fue la elaboración
+de reportes de producción, calidad, seguridad y costos. Estos informes aportaron una visión integral del desempeño y
+permitieron la toma de decisiones basadas en datos. Además, me encargué de la planificación de la producción y el
+mantenimiento. Coordiné los recursos necesarios y desarrollé estrategias para optimizar la capacidad de producción y
+garantizar el cumplimiento de los objetivos establecidos. También tuve la responsabilidad de gestionar y supervisar al
+personal a mi cargo. Fomenté un ambiente de trabajo colaborativo y motivador, brindando apoyo y orientación a los
+miembros del equipo para alcanzar los resultados esperados.

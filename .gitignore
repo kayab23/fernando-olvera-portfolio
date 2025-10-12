@@ -1,0 +1,47 @@
+# Archivos temporales
+*.tmp
+*.temp
+*~
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de editor
+.vscode/settings.json
+*.swp
+*.swo
+
+# Archivos LaTeX temporales
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.nav
+*.snm
+
+# Archivos PDF temporales (mantener solo las versiones finales)
+exports/*.pdf
+!exports/cv_final.pdf
+
+# Archivos de respaldo
+*.bak
+*.backup
+
+# Carpetas de node_modules si se agregan scripts
+node_modules/
+npm-debug.log*
+
+# Variables de entorno
+.env
+.env.local
+
+# Archivos personales temporales
+profile-photo-temp.*
+cv_draft_*

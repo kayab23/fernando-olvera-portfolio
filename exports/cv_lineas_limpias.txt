@@ -1,0 +1,103 @@
+  1: --- PÁGINA 1 ---
+  2: FERNANDO OLVERA RENDON
+  3: ANALISTA DE DATOS
+  4: Kayab2309@gmail.com
+  5: 5583597359
+  6: Edad- 50
+  7: www.linkedin.com/in/fernando-olvera-059739242
+  8: ACERCA DE MÍ
+  9: Profesional con mas de 5 años experiencia en análisis de datos, extracción, transformación y carga de datos, consultas y análisis SQL.
+ 10: Sólidas habilidades en Power BI para visualizaciones interactivas y paneles de control. Dominio avanzado de Excel para análisis y
+ 11: automatización. Desarrollo en Python para procesar, visualizar y analizar datos, generando insights relevantes para la toma de decisiones
+ 12: basada en datos.
+ 13: EDUCACIÓN
+ 14: IDIOMAS
+ 15: Bachillerato Tecnico
+ 16: Español ( NATIVO )
+ 17: 2017 - 2020
+ 18: Inglés ( Basico Nivel A2 Dispuesto al aprendizaje)
+ 19: Cursos Formacion especializado
+ 20: Certificación Google como Analista de Datos
+ 21: (octubre 2023)
+ 22: Certificación de competencias Microsoft EXPERIENCIA PROFESIONAL
+ 23: Secretaría del Trabajo (2018)
+ 24: Constancia de conocimiento y habilidades Excel
+ 25: Analista de Datos
+ 26: avanzado CECATI 171 (2018)
+ 27: Certificación de conocimiento y habilidades en
+ 28: Corus Consulting, Inc. - Octubre 2023 a Mayo -2024
+ 29: Python (enero 2024)
+ 30: Certificación desarrollo WEB con HTML y CSS Responsabilidades: Optimización de procesos de conciliación bancaria mediante el
+ 31: (mayo 2023) análisis de discrepancias y la implementación de soluciones automatizadas. Identificación
+ 32: de patrones y tendencias relevantes en grandes conjuntos de datos para la toma de
+ 33: Certificación en Bases de Datos (septiembre
+ 34: 2023) decisiones estratégicas. Creación de reportes dinámicos e interactivos utilizando Python,
+ 35: visualizando datos de manera efectiva. Carga, descarga y transformación de datos en la
+ 36: Diploma de conocimiento y habilidades en Bases
+ 37: nube utilizando AWS S3 y otros servicios de AWS. Extracción y análisis de información
+ 38: de datos CECATI 171
+ 39: crítica de bases de datos relacionales para respaldar iniciativas comerciales. Generación
+ 40: En curso Python para Ciencia de Datos 120
+ 41: de una amplia gama de informes para diversos departamentos, incluyendo finanzas.
+ 42: horas de formacion
+ 43: Extracción de insights valiosos de conjuntos de datos complejos utilizando técnicas de
+ 44: HABILIDADES
+ 45: análisis estadístico y de machine learning. Trabajo en equipo para el desarrollo y
+ 46: Resolución de Problemas.
+ 47: mantenimiento de proyectos utilizando herramientas de control de versiones como Git.
+ 48: Comunicación Efectiva.
+ 49: Analista de Datos
+ 50: Liderazgo.
+ 51: Trabajo en Equipo. Especialistas Contacto Directo, Inc. - Agosto 2022 a Agosto -2023
+ 52: Adaptabilidad.
+ 53: Responsabilidades: Implementación del proceso de Extracción, Transformación y Carga
+ 54: Organización y Planificación. (ETL) de datos, asegurando la calidad y consistencia de la información. Limpieza y
+ 55: normalización de datos con SQL para crear bases de datos confiables y precisas para su
+ 56: HABILIDADES TECNICAS
+ 57: posterior análisis. Desarrollo, mantenimiento y modificación de tableros interactivos
+ 58: Análisis de Datos: ETL, análisis de datos, utilizando Power BI para visualizar y comunicar datos y métricas relevantes para el
+ 59: negocio. Seguimiento en tiempo real de ventas, llamadas y tiempos de ejecutivos para la
+ 60: identificación de patrones, tendencias.
+ 61: toma de decisiones informadas y la mejora continua de los procesos del centro de
+ 62: Programación: Python, SQL, HTML, CSS. llamadas. Extracción de datos de diversas fuentes para realizar análisis detallados de las
+ 63: Visualización: Power BI, Matplotlib, Seaborn. medidas relacionadas con el centro de llamadas. Realización de actividades con Python
+ 64: utilizando pandas para explorar, filtrar, manipular, transformar y resumir datos. Creación
+ 65: Bases de Datos: MySQL, PostgreSQL, SQL server
+ 66: de gráficos y visualizaciones atractivas con Matplotlib o Seaborn para comprender mejor
+ 67: Control de Versiones: Git.
+ 68: los datos.
+ 69: Nube: AWS.
+ 70: --- PÁGINA 2 ---
+ 71: EXPERIENCIA PROFESIONAL
+ 72: Analista de Datos
+ 73: Juridico Colemart, Inc. - Abril 2021 a Agosto -2022
+ 74: Desempeñé una serie de responsabilidades clave. Me encargué de la limpieza y normalización de bases de datos,
+ 75: asegurando la calidad y consistencia de la información. Además, tuve la oportunidad de crear y enviar campañas
+ 76: masivas utilizando diferentes canales de comunicación, como SMS, EMAIL, BLASTER, WHATSAPP y PREDICTIVO.
+ 77: Realicé un análisis exhaustivo del impacto de estas campañas, evaluando su efectividad y generando informes
+ 78: detallados. También me ocupé de la administración de cartera, generando reportes diarios, semanales y mensuales para
+ 79: evaluar los resultados obtenidos. Brindé apoyo al área operativa implementando estrategias de contacto efectivas. Esto
+ 80: incluyó el seguimiento de los resultados de pagos y promesas, asegurando un flujo adecuado en los procesos
+ 81: financieros. Además, resolví problemas administrativos y operacionales que surgieron durante el desarrollo de las
+ 82: actividades. Finalmente, como parte de mi rol, generé reportes mensuales de resultados para proporcionar una visión
+ 83: global de los logros alcanzados al cierre de cada periodo.
+ 84: Analista de Datos
+ 85: Consorcio Juridico, Inc. - Septiembre 2018 a Agosto -2021
+ 86: Llevé a cabo diversas tareas clave. Esto incluyó la limpieza y normalización de bases de datos para garantizar la
+ 87: integridad de la información. También realicé consultas CRM CYBER y segmenté datos para optimizar los procesos.
+ 88: Generé reportes gerenciales y participé en la implementación de campañas masivas, asegurando una comunicación
+ 89: efectiva con los clientes. Además, me encargué de cargar listas en predictivo y enviar convenios, contribuyendo a la
+ 90: resolución de casos. Analizar el impacto de las campañas fue una parte fundamental de mi rol, evaluando su efectividad
+ 91: y realizando ajustes según los resultados obtenidos. Administré la cartera y generé reportes diarios, semanales y
+ 92: mensuales para mantener un seguimiento exhaustivo de los resultados. Al finalizar cada mes, generé reportes
+ 93: detallados de los resultados obtenidos para proporcionar una visión global del rendimiento del equipo.
+ 94: Tecnico Operador de Produccion
+ 95: Procter & Gamble, Inc. - Marzo 2003 a Julio -2012
+ 96: Desempeñé un papel fundamental en la supervisión de las líneas de producción. Coordiné y supervisé las operaciones
+ 97: diarias para garantizar la eficiencia y calidad del proceso. Una parte importante de mi responsabilidad fue la elaboración
+ 98: de reportes de producción, calidad, seguridad y costos. Estos informes aportaron una visión integral del desempeño y
+ 99: permitieron la toma de decisiones basadas en datos. Además, me encargué de la planificación de la producción y el
+100: mantenimiento. Coordiné los recursos necesarios y desarrollé estrategias para optimizar la capacidad de producción y
+101: garantizar el cumplimiento de los objetivos establecidos. También tuve la responsabilidad de gestionar y supervisar al
+102: personal a mi cargo. Fomenté un ambiente de trabajo colaborativo y motivador, brindando apoyo y orientación a los
+103: miembros del equipo para alcanzar los resultados esperados.
