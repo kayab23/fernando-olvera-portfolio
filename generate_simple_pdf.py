@@ -71,6 +71,9 @@ def markdown_to_pdf_simple():
     lines = md_content.split('\n')
     
     i = 0
+    in_table = False
+    table_data = []
+    
     while i < len(lines):
         line = lines[i].strip()
         
@@ -93,14 +96,66 @@ def markdown_to_pdf_simple():
             clean_line = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2">\1</a>', clean_line)
             story.append(Paragraph(clean_line, contact_style))
             
-        elif line.startswith('### 🎯'):
-            # Sección de perfil
-            story.append(Spacer(1, 12))
-            section_title = line[4:].strip()
-            story.append(Paragraph(section_title, section_style))
+        elif line.startswith('| ') and '|' in line:
+            # Detectar inicio de tabla
+            if not in_table:
+                in_table = True
+                table_data = []
+            
+            # Procesar fila de tabla
+            if 'Tecnología' in line and 'Nivel' in line:
+                # Encabezado de tabla - agregar título de sección de habilidades
+                skills_title = "🛠️ Habilidades Técnicas"
+                story.append(Paragraph(skills_title, section_style))
+                story.append(Spacer(1, 6))
+            else:
+                # Fila de datos
+                cells = [cell.strip() for cell in line.split('|')[1:-1]]  # Remover | del inicio y fin
+                if len(cells) >= 2 and cells[0] and cells[1]:
+                    tech = cells[0].replace('**', '')  # Remover markdown bold
+                    level = cells[1].replace('█', '■').replace('%', '% ')  # Reemplazar caracteres especiales
+                    table_data.append([tech, level])
+        
+        elif in_table and (not line or not line.startswith('|')):
+            # Fin de tabla - agregar datos a PDF
+            if table_data:
+                for tech, level in table_data:
+                    skill_text = f"<b>{tech}:</b> {level}"
+                    story.append(Paragraph(skill_text, styles['Normal']))
+                    story.append(Spacer(1, 3))
+                story.append(Spacer(1, 12))
+            in_table = False
+            table_data = []
+            
+            # Procesar la línea actual si no está vacía
+            if line and not line.startswith('---'):
+                if line.startswith('### '):
+                    section_title = line[4:].strip()
+                    story.append(Paragraph(section_title, section_style))
+                elif line.startswith('#### '):
+                    subsection = line[5:].strip()
+                    subsection_style = ParagraphStyle(
+                        'Subsection',
+                        parent=styles['Heading3'],
+                        fontSize=12,
+                        spaceBefore=12,
+                        spaceAfter=6,
+                        textColor=HexColor('#2980b9'),
+                    )
+                    story.append(Paragraph(subsection, subsection_style))
+                elif line.startswith('- '):
+                    item = line[2:].strip()
+                    clean_item = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', item)
+                    clean_item = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2">\1</a>', clean_item)
+                    story.append(Paragraph(f"• {clean_item}", styles['Normal']))
+                elif line:
+                    clean_line = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', line)
+                    clean_line = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2">\1</a>', clean_line)
+                    story.append(Paragraph(clean_line, styles['Normal']))
+                    story.append(Spacer(1, 6))
             
         elif line.startswith('### '):
-            # Otras secciones
+            # Secciones principales
             story.append(Spacer(1, 12))
             section_title = line[4:].strip()
             story.append(Paragraph(section_title, section_style))
@@ -126,7 +181,7 @@ def markdown_to_pdf_simple():
             clean_item = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2">\1</a>', clean_item)
             story.append(Paragraph(f"• {clean_item}", styles['Normal']))
             
-        elif line and not line.startswith('---') and not line.startswith('|'):
+        elif line and not line.startswith('---'):
             # Texto normal
             if line:
                 # Limpiar markdown básico
@@ -136,6 +191,13 @@ def markdown_to_pdf_simple():
                 story.append(Spacer(1, 6))
         
         i += 1
+    
+    # Procesar tabla final si existe
+    if in_table and table_data:
+        for tech, level in table_data:
+            skill_text = f"<b>{tech}:</b> {level}"
+            story.append(Paragraph(skill_text, styles['Normal']))
+            story.append(Spacer(1, 3))
     
     # Construir PDF
     doc.build(story)
