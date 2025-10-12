@@ -128,10 +128,9 @@ def generate_recruiter_cv():
                 table_data = []
             
             if 'Tecnología' in line and 'Nivel' in line:
-                # Encabezado de habilidades técnicas
-                skills_title = "🛠️ Habilidades Técnicas"
-                story.append(Paragraph(skills_title, section_style))
-                story.append(Spacer(1, 10))
+                # Solo procesar encabezado de tabla, no agregar título aquí
+                # El título se agrega cuando procesamos "### 🛠️ Habilidades Técnicas"
+                pass
             else:
                 # Fila de datos
                 cells = [cell.strip() for cell in line.split('|')[1:-1]]

@@ -104,10 +104,9 @@ def markdown_to_pdf_simple():
             
             # Procesar fila de tabla
             if 'Tecnología' in line and 'Nivel' in line:
-                # Encabezado de tabla - agregar título de sección de habilidades
-                skills_title = "🛠️ Habilidades Técnicas"
-                story.append(Paragraph(skills_title, section_style))
-                story.append(Spacer(1, 6))
+                # Solo procesar encabezado de tabla, no agregar título duplicado
+                # El título se agrega cuando se procesa "### 🛠️ Habilidades Técnicas"
+                pass
             else:
                 # Fila de datos
                 cells = [cell.strip() for cell in line.split('|')[1:-1]]  # Remover | del inicio y fin
