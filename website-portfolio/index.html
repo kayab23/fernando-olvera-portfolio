@@ -149,16 +149,39 @@
         <div class="container">
             <h2 class="section-title">Resumen en video</h2>
             <p class="section-subtitle">Breve presentación de mi trayectoria como analista de datos</p>
-            <div class="video-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:900px;margin:0 auto;">
-                <iframe src="https://www.youtube.com/embed/3lVgv9u6fAg?rel=0" 
-                        title="Resumen de trayectoria - Fernando Olvera" 
-                        style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                </iframe>
-            </div>
-            <p style="text-align:center;margin-top:12px;color:#666;">¿Prefieres verlo en pantalla completa? <a href="https://youtu.be/3lVgv9u6fAg" target="_blank">Abrir en YouTube</a>.</p>
+                        <!-- Lazy-load video placeholder -->
+                        <div id="yt-placeholder" class="video-placeholder" data-video-id="3lVgv9u6fAg" role="button" aria-label="Reproducir resumen de trayectoria" tabindex="0" style="max-width:900px;margin:0 auto;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;background-size:cover;background-position:center;background-image:url('assets/images/video-poster.jpg');">
+                                <button class="play-btn" aria-hidden="true">▶</button>
+                        </div>
+                        <noscript>
+                            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:900px;margin:0 auto;">
+                                <iframe src="https://www.youtube.com/embed/3lVgv9u6fAg?rel=0" title="Resumen de trayectoria - Fernando Olvera" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </noscript>
+                        <p style="text-align:center;margin-top:12px;color:#666;">¿Prefieres verlo en pantalla completa? <a href="https://youtu.be/3lVgv9u6fAg" target="_blank">Abrir en YouTube</a>.</p>
+
+                        <script>
+                        (function(){
+                            var ph = document.getElementById('yt-placeholder');
+                            if(!ph) return;
+                            function loadIframe(){
+                                var id = ph.dataset.videoId;
+                                var iframe = document.createElement('iframe');
+                                iframe.src = 'https://www.youtube.com/embed/' + id + '?rel=0&autoplay=1';
+                                iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                                iframe.setAttribute('allowfullscreen','');
+                                iframe.style.position='absolute';
+                                iframe.style.top='0';
+                                iframe.style.left='0';
+                                iframe.style.width='100%';
+                                iframe.style.height='100%';
+                                ph.innerHTML='';
+                                ph.appendChild(iframe);
+                            }
+                            ph.addEventListener('click', loadIframe);
+                            ph.addEventListener('keydown', function(e){ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); loadIframe(); }});
+                        })();
+                        </script>
         </div>
     </section>
 
