@@ -578,6 +578,25 @@
     </section>
 
     <!-- Footer -->
+    <!-- PDF modal (hidden by default) -->
+    <div id="pdf-modal" class="pdf-modal" aria-hidden="true">
+        <div class="pdf-modal-overlay" tabindex="-1"></div>
+        <div class="pdf-modal-content" role="dialog" aria-modal="true" aria-label="Visor de certificado">
+            <button class="pdf-modal-close" aria-label="Cerrar visor">✕</button>
+            <div class="pdf-modal-toolbar">
+                <button id="pdf-prev" class="btn btn-white">◀</button>
+                <span id="pdf-page-num">1</span> / <span id="pdf-page-count">--</span>
+                <button id="pdf-next" class="btn btn-white">▶</button>
+                <button id="pdf-zoom-out" class="btn btn-white">-</button>
+                <button id="pdf-zoom-in" class="btn btn-white">+</button>
+                <a id="pdf-download" class="btn btn-secondary" download><i class="fas fa-download"></i> Descargar</a>
+            </div>
+            <div id="pdf-canvas-container" class="pdf-canvas-container">
+                <!-- canvas inserted dynamically -->
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Fernando Olvera Rendón. Todos los derechos reservados.</p>
@@ -586,6 +605,91 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="script.js"></script>
+        <script src="script.js"></script>
+        <!-- PDF.js from CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.8.162/pdf.min.js"></script>
+        <script>
+        (function(){
+            // PDF.js setup
+            const pdfjsLib = window['pdfjs-dist/build/pdf'];
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.8.162/pdf.worker.min.js';
+
+            let pdfDoc = null;
+            let pageNum = 1;
+            let scale = 1.0;
+            let canvas, ctx;
+
+            const modal = document.getElementById('pdf-modal');
+            const overlay = modal.querySelector('.pdf-modal-overlay');
+            const closeBtn = modal.querySelector('.pdf-modal-close');
+            const pageNumSpan = document.getElementById('pdf-page-num');
+            const pageCountSpan = document.getElementById('pdf-page-count');
+            const prevBtn = document.getElementById('pdf-prev');
+            const nextBtn = document.getElementById('pdf-next');
+            const zoomIn = document.getElementById('pdf-zoom-in');
+            const zoomOut = document.getElementById('pdf-zoom-out');
+            const downloadLink = document.getElementById('pdf-download');
+            const canvasContainer = document.getElementById('pdf-canvas-container');
+
+            function createCanvas(){
+                canvasContainer.innerHTML = '';
+                canvas = document.createElement('canvas');
+                canvasContainer.appendChild(canvas);
+                ctx = canvas.getContext('2d');
+            }
+
+            function renderPage(num){
+                pdfDoc.getPage(num).then(function(page){
+                    const viewport = page.getViewport({ scale: scale });
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+                    const renderContext = { canvasContext: ctx, viewport: viewport };
+                    page.render(renderContext);
+                    pageNumSpan.textContent = num;
+                });
+            }
+
+            function openModal(url){
+                createCanvas();
+                pdfjsLib.getDocument(url).promise.then(function(doc){
+                    pdfDoc = doc;
+                    pageNum = 1;
+                    pageCountSpan.textContent = pdfDoc.numPages;
+                    renderPage(pageNum);
+                    downloadLink.href = url;
+                    downloadLink.setAttribute('download', url.split('/').pop());
+                    modal.classList.add('open');
+                    modal.setAttribute('aria-hidden','false');
+                    document.body.style.overflow = 'hidden';
+                }).catch(function(err){
+                    console.error('Error loading PDF', err);
+                    window.open(url, '_blank');
+                });
+            }
+
+            function closeModal(){
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden','true');
+                canvasContainer.innerHTML = '';
+                pdfDoc = null;
+                document.body.style.overflow = '';
+            }
+
+            prevBtn.addEventListener('click', function(){ if(!pdfDoc) return; if(pageNum<=1) return; pageNum--; renderPage(pageNum); });
+            nextBtn.addEventListener('click', function(){ if(!pdfDoc) return; if(pageNum>=pdfDoc.numPages) return; pageNum++; renderPage(pageNum); });
+            zoomIn.addEventListener('click', function(){ scale = Math.min(scale + 0.25, 3); if(pdfDoc) renderPage(pageNum); });
+            zoomOut.addEventListener('click', function(){ scale = Math.max(scale - 0.25, 0.5); if(pdfDoc) renderPage(pageNum); });
+
+            closeBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', closeModal);
+            document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+
+            // Attach click handlers to all "Ver" links (btn-white inside cert-links)
+            document.querySelectorAll('.cert-links a.btn.btn-white').forEach(function(a){
+                a.addEventListener('click', function(ev){ ev.preventDefault(); const url = a.getAttribute('href'); openModal(url); });
+            });
+
+        })();
+        </script>
 </body>
 </html>
