@@ -412,13 +412,31 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Lazy loading for images
+// Lazy loading for images with blur-up (progressive) effect
 const imageObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const img = entry.target;
-            img.src = img.dataset.src;
-            img.classList.remove('lazy');
+            const src = img.dataset.src;
+            if (!src) return;
+
+            // mark as loading (applies blur via CSS)
+            img.classList.add('loading');
+
+            // Once loaded, switch to loaded state (remove blur)
+            const onLoad = () => {
+                img.classList.remove('loading');
+                img.classList.add('loaded');
+                img.removeEventListener('load', onLoad);
+                // optional: remove data-src to avoid re-processing
+                img.removeAttribute('data-src');
+            };
+
+            img.addEventListener('load', onLoad);
+
+            // start loading the real image
+            img.src = src;
+
             imageObserver.unobserve(img);
         }
     });
