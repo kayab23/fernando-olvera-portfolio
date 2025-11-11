@@ -1,0 +1,2 @@
+# Track exported mp4s with Git LFS (if git-lfs is installed locally)
+exports/*.mp4 filter=lfs diff=lfs merge=lfs -text
