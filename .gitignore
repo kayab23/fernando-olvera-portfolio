@@ -28,6 +28,8 @@ desktop.ini
 
 # Archivos PDF temporales (mantener solo las versiones finales)
 exports/*.pdf
+# Evitar subir vídeos grandes exportados accidentalmente
+exports/*.mp4
 !exports/cv_final.pdf
 
 # Archivos de respaldo

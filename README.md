@@ -171,3 +171,52 @@
 > *"Transformando datos en decisiones estratégicas con tecnología de vanguardia"*
 
 **¿Interesado en colaborar?** 📧 [Kayab2309@gmail.com](mailto:Kayab2309@gmail.com?subject=Oportunidad%20Laboral)
+
+---
+
+## 🆕 Cambios recientes (resumen)
+
+- Se añadió una sección "Resumen en video" en el sitio, con el vídeo embebido de YouTube (lazy-load opcional).
+- Se incorporó una sección "Certificaciones" que muestra los PDFs de certificaciones y un visor integrado usando PDF.js (modal) para verlos sin salir de la página.
+- Mejora visual: paleta de colores actualizada a tonos azules y botones primarios homogéneos.
+- Mejora de rendimiento: el embed de YouTube fue reemplazado por un placeholder lazy-load que crea el iframe solo al hacer click.
+
+Estas mejoras están ya desplegadas en la rama `main` y activas en el sitio (o serán desplegadas automáticamente por Render tras el push).
+
+## 🧭 Cómo ejecutar el sitio localmente (rápido)
+
+1. Abre una terminal en la raíz del repositorio (donde está este README).
+2. Ejecuta un servidor estático simple (Python 3 está instalado en la mayoría de entornos):
+
+```powershell
+# desde la carpeta del repo
+python -m http.server 8000
+# abrir en el navegador:
+http://localhost:8000/website-portfolio/index.html
+```
+
+3. Navega a la sección "Certificaciones" y prueba "Ver" para abrir el visor PDF integrado (PDF.js). Para el video, haz click en el placeholder para cargar el reproductor de YouTube.
+
+## 📁 Estructura relevante (resumen)
+
+- `website-portfolio/` - Sitio estático (HTML/CSS/JS), contiene la web pública y assets.
+	- `website-portfolio/assets/certs/` - PDFs de certificaciones copiados desde tu carpeta local.
+- `exports/` - Exportaciones y recursos generados (CV en PDF, dumps, etc.).
+- `generate_*.py` - Scripts de generación de CV y PDF localmente.
+
+## 🧹 Recomendaciones de limpieza / archivos grandes
+
+- Evitar subir archivos binarios grandes al repositorio (por ejemplo `.mp4` > 50MB). Se detectó un MP4 en `exports/Carrera_de_Analista_de_Datos.mp4` como no rastreado. Recomendaciones:
+	- Mover archivos de vídeo grandes fuera del repo (por ejemplo `C:\Users\User\Videos\`) o subirlos a un CDN/Cloud (Cloudinary, S3, Google Drive) y usar la URL pública.
+	- Añadir reglas a `.gitignore` para evitar commits accidentales de grandes binarios (se agregó `exports/*.mp4`).
+	- Si necesitas versionar archivos grandes, usar Git LFS.
+
+## ✅ Próximos pasos sugeridos
+
+- (Opcional) Generar miniaturas (thumbnails) para cada certificado usando ImageMagick/Ghostscript para mejorar la UX.
+- (Opcional) Integrar el viewer oficial de PDF.js para funciones avanzadas (buscador, miniaturas de páginas, impresión integrada).
+- Revisar `exports/` periódicamente y mover a almacenamiento en la nube los archivos que no quieres versionar.
+
+---
+
+Si quieres, aplico las tareas de limpieza automáticamente (mover/archivar los binarios grandes a `exports/archive/` y actualizar `.gitignore`) o procedo a generar thumbnails para los certificados si confirmas que quieres esos pasos.
