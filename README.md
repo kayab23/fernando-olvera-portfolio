@@ -211,6 +211,18 @@ http://localhost:8000/website-portfolio/index.html
 	- Añadir reglas a `.gitignore` para evitar commits accidentales de grandes binarios (se agregó `exports/*.mp4`).
 	- Si necesitas versionar archivos grandes, usar Git LFS.
 
+### Nota sobre Git LFS y migración de historial
+
+Se añadió `.gitattributes` para que futuros archivos coincidentes (`exports/*.mp4`) se gestionen por Git LFS cuando se añadan. Decidimos no reescribir el historial del repositorio (no se ejecutó `git lfs migrate import`) para evitar los riesgos asociados a reescrituras de historia en la rama `main` compartida.
+
+Si deseas migrar los archivos grandes ya presentes en el historial a Git LFS (esto reescribe la historia y requiere un force-push y coordinación con colaboradores), puedo preparar y ejecutar ese paso tras tu confirmación. Para referencia, el comando sería:
+
+```powershell
+git lfs migrate import --include="exports/*.mp4"
+# luego usar push forzado: git push --force --all && git push --force --tags
+```
+
+
 ## ✅ Próximos pasos sugeridos
 
 - (Opcional) Generar miniaturas (thumbnails) para cada certificado usando ImageMagick/Ghostscript para mejorar la UX.
