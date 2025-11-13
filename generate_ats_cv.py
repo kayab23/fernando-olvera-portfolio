@@ -171,27 +171,51 @@ def generate_ats_cv():
                     story.append(header_table)
                     header_added = True
                     
-                    # Saltar las líneas procesadas
-                    skip_next_lines = len(contact_lines) + 3
+                    # Calcular cuántas líneas saltar (título profesional + contactos + separadores)
+                    lines_to_skip = 0
+                    for j in range(i+1, min(i+20, len(lines))):
+                        temp = lines[j].strip()
+                        if temp.startswith('## PERFIL PROFESIONAL'):
+                            break
+                        lines_to_skip += 1
+                    skip_next_lines = lines_to_skip
                     
                 except Exception as e:
                     print(f"⚠️ Error cargando foto: {e}")
-                # Fallback sin foto
-                for item in left_content:
-                    story.append(item)
-                story.append(Spacer(1, 8))
-                header_added = True
+                    # Fallback sin foto
+                    for item in left_content:
+                        story.append(item)
+                    story.append(Spacer(1, 8))
+                    header_added = True
+                    # Saltar líneas procesadas
+                    lines_to_skip = 0
+                    for j in range(i+1, min(i+20, len(lines))):
+                        temp = lines[j].strip()
+                        if temp.startswith('## PERFIL PROFESIONAL'):
+                            break
+                        lines_to_skip += 1
+                    skip_next_lines = lines_to_skip
             else:
                 print(f"⚠️ Foto no encontrada: {foto_path}")
                 # Fallback sin foto
                 for item in left_content:
                     story.append(item)
                 story.append(Spacer(1, 8))
-                header_added = True        # Saltar título profesional y contacto si ya se procesaron en el header
-        elif (line.startswith('## ') and i < 5) or \
-             (line.startswith('**Email:**') or line.startswith('**Teléfono:**') or \
-              line.startswith('**Ubicación:**') or line.startswith('**LinkedIn:**') or \
-              line.startswith('**Portfolio:**')) and not header_added:
+                header_added = True
+                # Saltar líneas procesadas
+                lines_to_skip = 0
+                for j in range(i+1, min(i+20, len(lines))):
+                    temp = lines[j].strip()
+                    if temp.startswith('## PERFIL PROFESIONAL'):
+                        break
+                    lines_to_skip += 1
+                skip_next_lines = lines_to_skip
+            
+        # Saltar líneas de header si ya fueron procesadas
+        elif header_added and i < 15 and (line.startswith('## ') or line.startswith('**Email:**') or \
+             line.startswith('**Teléfono:**') or line.startswith('**Ubicación:**') or \
+             line.startswith('**LinkedIn:**') or line.startswith('**Portfolio:**') or \
+             line.startswith('---') or not line):
             pass  # Ya procesado en el header
             
         # Separadores ---
