@@ -52,7 +52,7 @@ def generate_ats_cv():
         parent=styles['Normal'],
         fontSize=10,
         spaceAfter=3,
-        alignment=TA_CENTER,
+        alignment=TA_LEFT,
         textColor=HexColor('#000000'),
         fontName='Helvetica'
     )
@@ -134,7 +134,7 @@ def generate_ats_cv():
                 elif temp_line.startswith('**Email:**') or temp_line.startswith('**Teléfono:**') or \
                      temp_line.startswith('**Ubicación:**') or temp_line.startswith('**LinkedIn:**') or \
                      temp_line.startswith('**Portfolio:**'):
-                    clean_temp = re.sub(r'\*\*(.*?)\*\*', r'\1', temp_line)
+                    clean_temp = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', temp_line)
                     clean_temp = re.sub(r'\[(.*?)\]\((.*?)\)', r'\1', clean_temp)
                     contact_lines.append(clean_temp)
             
