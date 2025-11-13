@@ -29,7 +29,7 @@ def generate_ats_cv():
         'Name',
         parent=styles['Heading1'],
         fontSize=20,
-        spaceAfter=4,
+        spaceAfter=2,
         textColor=HexColor('#000000'),
         alignment=TA_CENTER,
         fontName='Helvetica-Bold'
@@ -40,7 +40,7 @@ def generate_ats_cv():
         'ProfessionalTitle',
         parent=styles['Heading2'],
         fontSize=14,
-        spaceAfter=12,
+        spaceAfter=6,
         textColor=HexColor('#000000'),
         alignment=TA_CENTER,
         fontName='Helvetica-Bold'
@@ -51,7 +51,7 @@ def generate_ats_cv():
         'ContactInfo',
         parent=styles['Normal'],
         fontSize=10,
-        spaceAfter=3,
+        spaceAfter=1,
         alignment=TA_LEFT,
         textColor=HexColor('#000000'),
         fontName='Helvetica'
@@ -62,8 +62,8 @@ def generate_ats_cv():
         'SectionHeader',
         parent=styles['Heading2'],
         fontSize=12,
-        spaceBefore=16,
-        spaceAfter=8,
+        spaceBefore=10,
+        spaceAfter=4,
         textColor=HexColor('#000000'),
         fontName='Helvetica-Bold',
         leftIndent=0
@@ -74,8 +74,8 @@ def generate_ats_cv():
         'Subsection',
         parent=styles['Heading3'],
         fontSize=11,
-        spaceBefore=10,
-        spaceAfter=5,
+        spaceBefore=6,
+        spaceAfter=3,
         textColor=HexColor('#000000'),
         fontName='Helvetica-Bold'
     )
@@ -85,10 +85,10 @@ def generate_ats_cv():
         'NormalText',
         parent=styles['Normal'],
         fontSize=10,
-        spaceAfter=4,
+        spaceAfter=2,
         textColor=HexColor('#000000'),
         fontName='Helvetica',
-        leading=14
+        leading=12
     )
     
     # Estilo para bullets
@@ -96,11 +96,11 @@ def generate_ats_cv():
         'BulletText',
         parent=styles['Normal'],
         fontSize=10,
-        spaceAfter=4,
+        spaceAfter=2,
         leftIndent=20,
         textColor=HexColor('#000000'),
         fontName='Helvetica',
-        leading=14
+        leading=12
     )
     
     # Procesar contenido
@@ -165,7 +165,7 @@ def generate_ats_cv():
                         ('LEFTPADDING', (0, 0), (-1, -1), 0),
                         ('RIGHTPADDING', (0, 0), (-1, -1), 0),
                         ('TOPPADDING', (0, 0), (-1, -1), 0),
-                        ('BOTTOMPADDING', (0, 0), (-1, -1), 15),
+                        ('BOTTOMPADDING', (0, 0), (-1, -1), 8),
                     ]))
                     
                     story.append(header_table)
@@ -176,20 +176,18 @@ def generate_ats_cv():
                     
                 except Exception as e:
                     print(f"⚠️ Error cargando foto: {e}")
-                    # Fallback sin foto
-                    for item in left_content:
-                        story.append(item)
-                    story.append(Spacer(1, 15))
-                    header_added = True
+                # Fallback sin foto
+                for item in left_content:
+                    story.append(item)
+                story.append(Spacer(1, 8))
+                header_added = True
             else:
                 print(f"⚠️ Foto no encontrada: {foto_path}")
                 # Fallback sin foto
                 for item in left_content:
                     story.append(item)
-                story.append(Spacer(1, 15))
-                header_added = True
-            
-        # Saltar título profesional y contacto si ya se procesaron en el header
+                story.append(Spacer(1, 8))
+                header_added = True        # Saltar título profesional y contacto si ya se procesaron en el header
         elif (line.startswith('## ') and i < 5) or \
              (line.startswith('**Email:**') or line.startswith('**Teléfono:**') or \
               line.startswith('**Ubicación:**') or line.startswith('**LinkedIn:**') or \
@@ -199,12 +197,12 @@ def generate_ats_cv():
         # Separadores ---
         elif line.startswith('---'):
             if story:  # Solo agregar espaciador si ya hay contenido
-                story.append(Spacer(1, 8))
+                story.append(Spacer(1, 4))
             
         # Secciones principales
         elif line.startswith('## ') and i >= 5:
             section = line[3:].strip()
-            story.append(Spacer(1, 4))
+            story.append(Spacer(1, 2))
             story.append(Paragraph(section, section_style))
             
         # Subsecciones (títulos de trabajo con ###)

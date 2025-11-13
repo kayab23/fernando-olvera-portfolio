@@ -242,9 +242,3 @@ Curso especializado de 120 horas
 
 - **Español:** Nativo
 - **Inglés:** Básico (A2) - Dispuesto al aprendizaje
-
----
-
-**PALABRAS CLAVE ATS:** Analista de Datos, Data Analyst, Business Intelligence, BI, Power BI, Tableau, SQL, Python, Pandas, ETL, Machine Learning, AWS, Big Data, Dashboards, Visualización de Datos, Data Visualization, Excel Avanzado, Automatización, APIs RESTful, PWA, Git, Control de Versiones, Análisis Estadístico, KPIs, Reportes Ejecutivos, Limpieza de Datos, Normalización de Datos, SQL Server, MySQL, PostgreSQL, Flask, JavaScript, HTML, CSS, Matplotlib, Seaborn, Chart.js, DAX, Modelado de Datos, Análisis Predictivo, CRM, Geolocalización, GPS, WebSocket, Cloud Computing, AWS S3, Reporting Automation, Process Automation, Data Quality, Data Integration, Business Analytics, Insights Estratégicos, Toma de Decisiones, ROI, Performance Metrics
-
-*CV actualizado: Noviembre 2025 | Optimizado para ATS*
