@@ -1,6 +1,6 @@
 import markdown
 from reportlab.lib.pagesizes import A4
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, Image, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.lib.colors import HexColor
@@ -16,7 +16,7 @@ def generate_ats_cv():
         md_content = file.read()
     
     # Crear PDF
-    pdf_path = 'exports/CV_Fernando_Olvera_ATS_Optimizado.pdf'
+    pdf_path = 'exports/CV. Fernando Olvera.pdf'
     doc = SimpleDocTemplate(pdf_path, pagesize=A4, 
                           rightMargin=60, leftMargin=60,
                           topMargin=60, bottomMargin=60)
@@ -109,6 +109,7 @@ def generate_ats_cv():
     
     i = 0
     skip_next_lines = 0
+    header_added = False
     
     while i < len(lines):
         if skip_next_lines > 0:
@@ -118,24 +119,82 @@ def generate_ats_cv():
             
         line = lines[i].strip()
         
-        # Título principal (nombre)
-        if line.startswith('# ') and i < 3:
+        # Título principal (nombre) - crear encabezado con foto
+        if line.startswith('# ') and i < 3 and not header_added:
             name = line[2:].strip()
-            story.append(Paragraph(name, name_style))
             
-        # Título profesional (después del nombre)
-        elif line.startswith('## ') and i < 5:
-            prof_title = line[3:].strip()
-            story.append(Paragraph(prof_title, title_style))
-            story.append(Spacer(1, 8))
+            # Buscar título profesional y datos de contacto
+            prof_title = ""
+            contact_lines = []
             
-        # Información de contacto
-        elif line.startswith('**Email:**') or line.startswith('**Teléfono:**') or \
-             line.startswith('**Ubicación:**') or line.startswith('**LinkedIn:**') or \
-             line.startswith('**Portfolio:**'):
-            clean_line = re.sub(r'\*\*(.*?)\*\*', r'\1', line)
-            clean_line = re.sub(r'\[(.*?)\]\((.*?)\)', r'\1', clean_line)
-            story.append(Paragraph(clean_line, contact_style))
+            for j in range(i+1, min(i+15, len(lines))):
+                temp_line = lines[j].strip()
+                if temp_line.startswith('## ') and j < 5:
+                    prof_title = temp_line[3:].strip()
+                elif temp_line.startswith('**Email:**') or temp_line.startswith('**Teléfono:**') or \
+                     temp_line.startswith('**Ubicación:**') or temp_line.startswith('**LinkedIn:**') or \
+                     temp_line.startswith('**Portfolio:**'):
+                    clean_temp = re.sub(r'\*\*(.*?)\*\*', r'\1', temp_line)
+                    clean_temp = re.sub(r'\[(.*?)\]\((.*?)\)', r'\1', clean_temp)
+                    contact_lines.append(clean_temp)
+            
+            # Crear columna izquierda con texto
+            left_content = []
+            left_content.append(Paragraph(name, name_style))
+            if prof_title:
+                left_content.append(Spacer(1, 4))
+                left_content.append(Paragraph(prof_title, title_style))
+            
+            left_content.append(Spacer(1, 8))
+            for contact_line in contact_lines:
+                left_content.append(Paragraph(contact_line, contact_style))
+            
+            # Intentar cargar foto
+            foto_path = 'assets/foto.jpeg'
+            if os.path.exists(foto_path):
+                try:
+                    foto = Image(foto_path, width=1.5*inch, height=1.5*inch)
+                    
+                    # Crear tabla: texto izquierda, foto derecha
+                    header_table = Table([[left_content, foto]], 
+                                        colWidths=[4.5*inch, 2*inch])
+                    header_table.setStyle(TableStyle([
+                        ('ALIGN', (0, 0), (0, 0), 'LEFT'),
+                        ('ALIGN', (1, 0), (1, 0), 'RIGHT'),
+                        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+                        ('LEFTPADDING', (0, 0), (-1, -1), 0),
+                        ('RIGHTPADDING', (0, 0), (-1, -1), 0),
+                        ('TOPPADDING', (0, 0), (-1, -1), 0),
+                        ('BOTTOMPADDING', (0, 0), (-1, -1), 15),
+                    ]))
+                    
+                    story.append(header_table)
+                    header_added = True
+                    
+                    # Saltar las líneas procesadas
+                    skip_next_lines = len(contact_lines) + 3
+                    
+                except Exception as e:
+                    print(f"⚠️ Error cargando foto: {e}")
+                    # Fallback sin foto
+                    for item in left_content:
+                        story.append(item)
+                    story.append(Spacer(1, 15))
+                    header_added = True
+            else:
+                print(f"⚠️ Foto no encontrada: {foto_path}")
+                # Fallback sin foto
+                for item in left_content:
+                    story.append(item)
+                story.append(Spacer(1, 15))
+                header_added = True
+            
+        # Saltar título profesional y contacto si ya se procesaron en el header
+        elif (line.startswith('## ') and i < 5) or \
+             (line.startswith('**Email:**') or line.startswith('**Teléfono:**') or \
+              line.startswith('**Ubicación:**') or line.startswith('**LinkedIn:**') or \
+              line.startswith('**Portfolio:**')) and not header_added:
+            pass  # Ya procesado en el header
             
         # Separadores ---
         elif line.startswith('---'):
