@@ -5,6 +5,7 @@
 
 **Email:** Kayab2309@gmail.com  
 **Teléfono:** +52 5583597359  
+**Tel.Fijo:** 5593128401  
 **Ubicación:** Ciudad de México, México  
 **LinkedIn:** [linkedin.com/in/fernando-olvera-059739242](https://www.linkedin.com/in/fernando-olvera-059739242)  
 **Portfolio:** [fernando-olvera-portfolio.onrender.com](https://fernando-olvera-portfolio.onrender.com)

@@ -132,8 +132,8 @@ def generate_ats_cv():
                 if temp_line.startswith('## ') and j < 5:
                     prof_title = temp_line[3:].strip()
                 elif temp_line.startswith('**Email:**') or temp_line.startswith('**Teléfono:**') or \
-                     temp_line.startswith('**Ubicación:**') or temp_line.startswith('**LinkedIn:**') or \
-                     temp_line.startswith('**Portfolio:**'):
+                     temp_line.startswith('**Tel.Fijo:**') or temp_line.startswith('**Ubicación:**') or \
+                     temp_line.startswith('**LinkedIn:**') or temp_line.startswith('**Portfolio:**'):
                     clean_temp = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', temp_line)
                     clean_temp = re.sub(r'\[(.*?)\]\((.*?)\)', r'\1', clean_temp)
                     contact_lines.append(clean_temp)
@@ -213,9 +213,9 @@ def generate_ats_cv():
             
         # Saltar líneas de header si ya fueron procesadas
         elif header_added and i < 15 and (line.startswith('## ') or line.startswith('**Email:**') or \
-             line.startswith('**Teléfono:**') or line.startswith('**Ubicación:**') or \
-             line.startswith('**LinkedIn:**') or line.startswith('**Portfolio:**') or \
-             line.startswith('---') or not line):
+             line.startswith('**Teléfono:**') or line.startswith('**Tel.Fijo:**') or \
+             line.startswith('**Ubicación:**') or line.startswith('**LinkedIn:**') or \
+             line.startswith('**Portfolio:**') or line.startswith('---') or not line):
             pass  # Ya procesado en el header
             
         # Separadores ---
