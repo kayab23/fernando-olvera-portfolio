@@ -1,8 +1,13 @@
-# 🌟 Fernando Olvera - Portfolio Digital
+# 🌟 Fernando Olvera Rendón - Portfolio Digital
+
+**Desarrollado por:** Fernando Olvera Rendón  
+**Email:** Kayab2309@gmail.com  
+**LinkedIn:** [fernando-olvera-059739242](https://linkedin.com/in/fernando-olvera-059739242)  
+**URL Live:** https://fernando-olvera-portfolio.onrender.com
 
 ## 📋 Resumen del Proyecto
 
-He actualizado completamente la sección de proyectos destacados con tus desarrollos específicos de PWA en Glidewell y creado una estrategia completa para mostrar tu portafolio profesional.
+Portfolio web profesional completo desarrollado por Fernando Olvera Rendón, presentando habilidades técnicas, proyectos reales y experiencia en Business Intelligence y desarrollo de software.
 
 ## 🚀 Proyectos Destacados Actualizados
 

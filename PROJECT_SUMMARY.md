@@ -1,8 +1,12 @@
-# 🎯 PROYECTO COMPLETO - Portfolio Fernando Olvera
+# 🎯 PROYECTO COMPLETO - Portfolio Fernando Olvera Rendón
+
+**Desarrollado por:** Fernando Olvera Rendón  
+**Fecha:** Noviembre 2025  
+**Contacto:** [Kayab2309@gmail.com](mailto:Kayab2309@gmail.com)
 
 ## 📋 **RESUMEN EJECUTIVO**
 
-Transformación completa de CV estático (PDF) a **portfolio digital profesional** con hosting permanente, alertas de visitas, y proyectos reales verificables.
+Portfolio digital profesional completo desarrollado por Fernando Olvera Rendón, transformando un CV estático en una presencia web profesional con hosting permanente, sistema de alertas de visitas y proyectos reales verificables.
 
 ---
 

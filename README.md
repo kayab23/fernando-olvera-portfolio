@@ -2,7 +2,12 @@
 
 ## 🚀 Business Intelligence Specialist | Power BI Expert | Full-Stack Developer
 
+**Autor y Desarrollador:** Fernando Olvera Rendón  
+**Contacto:** [Kayab2309@gmail.com](mailto:Kayab2309@gmail.com) | [LinkedIn](https://linkedin.com/in/fernando-olvera-059739242)
+
 ¡Bienvenido a mi portfolio profesional! Soy especialista en **Business Intelligence**, **análisis de datos** y **desarrollo de aplicaciones web progresivas (PWA)**, con experiencia comprobada en **Glidewell Dental** y **Procter & Gamble**.
+
+> **Todos los proyectos, código y desarrollos presentados en este portfolio fueron creados y desarrollados por Fernando Olvera Rendón.**
 
 ### 🌐 [🔗 Ver Portfolio Online](https://fernando-olvera-portfolio.onrender.com)
 
