@@ -49,9 +49,17 @@
 <canvas id="cvCanvas"></canvas>
 
 <script>
+
 const canvas = document.getElementById('cvCanvas');
 const ctx = canvas.getContext('2d');
 const card = document.getElementById('detail-card');
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
 
 // Datos extraídos de las fuentes [1-4, 7, 12]
 const experience = [
@@ -68,8 +76,7 @@ const experience = [
 ];
 
 let particles = [];
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+
 
 class Node {
     constructor(data) {
