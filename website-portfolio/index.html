@@ -813,13 +813,17 @@
     cvClose.onclick = () => { cvModal.style.display = 'none'; document.body.style.overflow = ''; };
     cvModal.onclick = (e) => { if(e.target === cvModal) { cvModal.style.display = 'none'; document.body.style.overflow = ''; } };
 
+
     // Tooltip breve
     cvBtn.title = 'Explora mi experiencia profesional de forma visual e interactiva';
+    // Fin del bloque de modal CV Interactivo
+    </script>
 
-    // ...existing code...
-            // PDF.js setup
-            const pdfjsLib = window['pdfjs-dist/build/pdf'];
-            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.8.162/pdf.worker.min.js';
+    <!-- PDF.js y visor de certificados -->
+    <script>
+    // PDF.js setup
+    const pdfjsLib = window['pdfjs-dist/build/pdf'];
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.8.162/pdf.worker.min.js';
 
             let pdfDoc = null;
             let pageNum = 1;
