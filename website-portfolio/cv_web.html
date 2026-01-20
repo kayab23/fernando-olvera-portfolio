@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Fernando Olvera - Data Analyst Portfolio</title>
+    <style>
+        body { margin: 0; background: #0a0e14; color: #fff; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
+        canvas { display: block; }
+        #ui-layer { position: absolute; top: 20px; left: 20px; pointer-events: none; }
+        .card { 
+            position: absolute; bottom: 30px; right: 30px; width: 350px; 
+            background: rgba(20, 25, 35, 0.9); border: 1px solid #00f2ff; 
+            padding: 20px; border-radius: 10px; display: none; pointer-events: auto;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+        }
+        h1 { margin: 0; color: #00f2ff; font-size: 1.5rem; }
+        .highlight { color: #00f2ff; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+
+<div id="ui-layer">
+    <h1>Fernando Olvera Rendón</h1>
+    <p>Analista de Datos | Especialista en BI & Automatización</p>
+    <p id="summary" style="max-width:420px;margin:8px 0 0 0;font-size:1rem;line-height:1.3;">
+        Profesional con más de 6 años de experiencia en análisis de datos, automatización de reportes y desarrollo de dashboards ejecutivos para ventas, finanzas y operaciones. Experto en Excel avanzado, Power BI, SQL y Machine Learning, con enfoque en resultados y mejora continua.
+    </p>
+    <div id="skills" style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;">
+        <span style="background:#00f2ff22;color:#00f2ff;padding:4px 10px;border-radius:6px;font-size:0.95em;">Excel Avanzado</span>
+        <span style="background:#7000ff22;color:#7000ff;padding:4px 10px;border-radius:6px;font-size:0.95em;">Power BI</span>
+        <span style="background:#00ff8c22;color:#00ff8c;padding:4px 10px;border-radius:6px;font-size:0.95em;">SQL</span>
+        <span style="background:#ffae0022;color:#ffae00;padding:4px 10px;border-radius:6px;font-size:0.95em;">Python</span>
+        <span style="background:#ff005522;color:#ff0055;padding:4px 10px;border-radius:6px;font-size:0.95em;">ETL</span>
+        <span style="background:#fff2;padding:4px 10px;border-radius:6px;font-size:0.95em;color:#fff;">Machine Learning</span>
+    </div>
+    <button id="contact-btn" style="margin-top:18px;padding:7px 18px;background:#00f2ff;color:#0a0e14;border:none;border-radius:6px;font-weight:bold;cursor:pointer;">Contacto</button>
+</div>
+
+
+<div id="detail-card" class="card" tabindex="0" aria-modal="true" role="dialog">
+    <button id="close-card" style="position:absolute;top:8px;right:12px;background:none;border:none;color:#00f2ff;font-size:1.2em;cursor:pointer;">✕</button>
+    <h2 id="card-title"></h2>
+    <p id="card-period" class="highlight"></p>
+    <ul id="card-desc"></ul>
+</div>
+
+<canvas id="cvCanvas"></canvas>
+
+<script>
+const canvas = document.getElementById('cvCanvas');
+const ctx = canvas.getContext('2d');
+const card = document.getElementById('detail-card');
+
+// Datos extraídos de las fuentes [1-4, 7, 12]
+const experience = [
+        { id: 1, label: "Glidewell", period: "2025", role: "Analista de Datos", 
+            points: ["Lideró PWA con GPS para monitoreo de operaciones", "Análisis en Tableau con dashboards ejecutivos", "Automatización de reportes (+80% eficiencia)", "Integración de datos ERP y POS"], color: "#00f2ff" },
+        { id: 2, label: "Corus Consulting", period: "2023-2024", role: "Data Analyst", 
+            points: ["Optimización Big Data en AWS S3", "Machine Learning para predicción de ventas", "Automatización de reportes periódicos", "Modelado de datos financieros"], color: "#7000ff" },
+        { id: 3, label: "Especialistas CD", period: "2022-2023", role: "Analista ETL", 
+            points: ["Dashboards Power BI con KPIs comerciales", "Limpieza y validación SQL de grandes volúmenes", "Monitoreo Real-time de ventas", "Estandarización de reportes"], color: "#00ff8c" },
+        { id: 4, label: "P&G", period: "2003-2012", role: "Técnico Operador", 
+            points: ["Empresa Fortune 500", "Gestión de personal y procesos", "Eficiencia operativa y mejora continua"], color: "#ffae00" },
+        { id: 5, label: "Proyectos (PWA/ML)", period: "2024-2025", role: "Developer", 
+            points: ["FTA Dashboard (GPS, BI, automatización)", "BMW Tablero (Power BI, DAX avanzado)", "Ventas Mario ML (+28% performance, ROI 340%)"], color: "#ff0055" }
+];
+
+let particles = [];
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.radius = 40 + (data.points.length * 5);
+        this.vx = (Math.random() - 0.5) * 2;
+        this.vy = (Math.random() - 0.5) * 2;
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.data.color + "33";
+        ctx.fill();
+        ctx.strokeStyle = this.data.color;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ctx.fillStyle = "#fff";
+        ctx.textAlign = "center";
+        ctx.fillText(this.data.label, this.x, this.y);
+    }
+
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+    }
+}
+
+experience.forEach(exp => particles.push(new Node(exp)));
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Dibujar conexiones (Data lines)
+    ctx.beginPath();
+    ctx.strokeStyle = "rgba(255,255,255,0.05)";
+    for(let i=0; i<particles.length; i++) {
+        for(let j=i+1; j<particles.length; j++) {
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+        }
+    }
+    ctx.stroke();
+
+    particles.forEach(p => {
+        p.update();
+        p.draw();
+    });
+    requestAnimationFrame(animate);
+}
+
+
+canvas.addEventListener('mousedown', (e) => {
+    let found = false;
+    particles.forEach(p => {
+        const dist = Math.hypot(e.clientX - p.x, e.clientY - p.y);
+        if (dist < p.radius) {
+            showDetail(p.data);
+            found = true;
+        }
+    });
+    if (!found) {
+        card.style.display = 'none';
+    }
+});
+
+document.getElementById('close-card').onclick = () => {
+    card.style.display = 'none';
+};
+
+// Contacto rápido
+document.getElementById('contact-btn').onclick = () => {
+    window.open('mailto:Kayab2309@gmail.com?subject=Contacto%20CV%20Web', '_blank');
+};
+
+function showDetail(data) {
+    card.style.display = 'block';
+    document.getElementById('card-title').innerText = data.label;
+    document.getElementById('card-period').innerText = `${data.role} | ${data.period}`;
+    const list = document.getElementById('card-desc');
+    list.innerHTML = data.points.map(p => `<li>${p}</li>`).join('');
+}
+
+animate();
+</script>
+</body>
+</html>

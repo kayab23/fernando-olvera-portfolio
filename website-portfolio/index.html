@@ -787,12 +787,36 @@
         </div>
     </footer>
 
+    <!-- Botón flotante para CV interactivo -->
+    <button id="cv-float-btn" style="position:fixed;bottom:32px;right:32px;z-index:1000;background:#00f2ff;color:#0a0e14;font-weight:bold;padding:14px 22px;border:none;border-radius:30px;box-shadow:0 2px 16px #00f2ff44;cursor:pointer;transition:background 0.2s;">
+        <span style="font-size:1.2em;vertical-align:middle;">🧑‍💻</span> CV Interactivo
+    </button>
+
+    <!-- Modal para CV interactivo -->
+    <div id="cv-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(10,14,20,0.92);z-index:2000;align-items:center;justify-content:center;">
+        <div style="position:relative;width:90vw;max-width:900px;height:80vh;box-shadow:0 0 32px #00f2ff33;border-radius:18px;overflow:hidden;">
+            <button id="cv-modal-close" style="position:absolute;top:12px;right:18px;background:none;border:none;color:#00f2ff;font-size:2em;z-index:10;cursor:pointer;">✕</button>
+            <iframe src="cv_web.html" title="CV Interactivo Fernando Olvera" style="width:100%;height:100%;border:none;background:#0a0e14;"></iframe>
+        </div>
+    </div>
+
     <!-- JavaScript -->
-        <script src="script.js"></script>
-        <!-- PDF.js from CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.8.162/pdf.min.js"></script>
-        <script>
-        (function(){
+    <script src="script.js"></script>
+    <!-- PDF.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.8.162/pdf.min.js"></script>
+    <script>
+    // Modal CV Interactivo
+    const cvBtn = document.getElementById('cv-float-btn');
+    const cvModal = document.getElementById('cv-modal');
+    const cvClose = document.getElementById('cv-modal-close');
+    cvBtn.onclick = () => { cvModal.style.display = 'flex'; document.body.style.overflow = 'hidden'; };
+    cvClose.onclick = () => { cvModal.style.display = 'none'; document.body.style.overflow = ''; };
+    cvModal.onclick = (e) => { if(e.target === cvModal) { cvModal.style.display = 'none'; document.body.style.overflow = ''; } };
+
+    // Tooltip breve
+    cvBtn.title = 'Explora mi experiencia profesional de forma visual e interactiva';
+
+    // ...existing code...
             // PDF.js setup
             const pdfjsLib = window['pdfjs-dist/build/pdf'];
             pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.8.162/pdf.worker.min.js';
