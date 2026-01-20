@@ -5,13 +5,14 @@
     <title>Fernando Olvera - Data Analyst Portfolio</title>
     <style>
         body { margin: 0; background: #0a0e14; color: #fff; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
-        canvas { display: block; }
-        #ui-layer { position: absolute; top: 20px; left: 20px; }
+        canvas { display: block; position: absolute; top: 0; left: 0; z-index: 1; }
+        #ui-layer { position: absolute; top: 20px; left: 20px; z-index: 2; pointer-events: none; }
         .card { 
             position: absolute; bottom: 30px; right: 30px; width: 350px; 
             background: rgba(20, 25, 35, 0.9); border: 1px solid #00f2ff; 
             padding: 20px; border-radius: 10px; display: none; pointer-events: auto;
             box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+            z-index: 3;
         }
         h1 { margin: 0; color: #00f2ff; font-size: 1.5rem; }
         .highlight { color: #00f2ff; font-weight: bold; }
