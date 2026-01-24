@@ -501,40 +501,11 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--background-light);
 }
 
-.dashboard-grid{
+.dashboard-grid {
     display: grid;
-    /* Match project cards minimum width so dashboard cards keep same size */
+    /* keep same responsive behaviour as Projects */
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
-}
-
-/* Ensure dashboard cards align in rows and have equal height like projects */
-.dashboard-grid {
-    grid-auto-rows: 1fr; /* make each row same height so items stretch evenly */
-}
-
-.dashboard-item {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.dashboard-item .dashboard-preview {
-    flex: 0 0 200px;
-}
-
-.dashboard-item .project-content {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* Force 3 columns on wide screens to match projects layout when space allows */
-@media (min-width: 1100px) {
-    .dashboard-grid {
-        grid-template-columns: repeat(3, minmax(350px, 1fr));
-    }
 }
 
 .dashboard-item {
@@ -1128,4 +1099,11 @@ h1, h2, h3, h4, h5, h6 {
 .dashboard-item,
 .skill-category {
     opacity: 1 !important;
+}
+
+/* Wider support: force 3 columns from 800px to handle medium desktop widths */
+@media (min-width: 800px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
 }

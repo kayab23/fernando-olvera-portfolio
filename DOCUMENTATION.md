@@ -398,6 +398,31 @@ Sistema comercial completo con analytics avanzados y ML integration.
 **Resultados Medibles:**
 - ROI 340%
 - +28% team performance
+
+---
+
+## 🛠️ Últimos cambios (24-01-2026)
+
+Se documentan las modificaciones realizadas para alinear la sección "Galería de Dashboards" con la sección "Proyectos de Desarrollo" y corregir errores de HTML/CSS detectados durante la validación local.
+
+- **Archivos modificados:**
+  - `website-portfolio/index.html` — Se añadió el enlace de menú "Galería de Dashboards" y se corrigieron etiquetas `</div>` faltantes que provocaban anidamiento indebido de tarjetas.
+  - `website-portfolio/styles.css` — Se ajustó la sección de estilos de la galería para usar el mismo comportamiento responsivo que `Proyectos` (`grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));`) y se eliminaron reglas que forzaban columnas desproporcionadas.
+  - `website-portfolio/styles.min.css` — Regenerado a partir de `styles.css` para producción.
+
+- **Acciones realizadas:**
+  1. Corrección de HTML para garantizar que cada `.dashboard-item` sea hijo directo de `.dashboard-grid`.
+  2. Unificación del comportamiento CSS de la galería con la sección de proyectos para garantizar tarjetas en filas de 3 en pantallas anchas y comportamiento responsive para móviles.
+  3. Regeneración de assets minificados (`styles.min.css`, `script.min.js`) y reinicio del servidor local para ver los cambios inmediatamente.
+  4. Verificación visual en local y pequeñas correcciones de contenido (títulos y descripciones) para consistencia.
+
+- **Limpieza de archivos temporales:**
+  - Se buscó y no se encontraron archivos temporales comunes (`*.pyc`, `__pycache__`, `*~`, `*.log`, `temp*`). Si tienes archivos de prueba particulares que quieras eliminar, indícalos y los borro.
+
+- **Despliegue:**
+  - Después de commitear y pushear los cambios al branch `main`, Render.com detecta el push y redeployará automáticamente el sitio (URL: https://fernando-olvera-portfolio.onrender.com). Tiempo estimado: 1-2 minutos después del push.
+
+Si deseas, puedo ahora commitear y pushear estos cambios por ti y verificar que el deploy en Render se inicie.
 - $180K+ revenue increment
 
 ### 5. Sistema de Alertas de Visitas
