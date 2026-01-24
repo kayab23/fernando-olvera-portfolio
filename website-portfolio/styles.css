@@ -799,6 +799,84 @@ h1, h2, h3, h4, h5, h6 {
     animation: fadeInUp 0.6s ease-out;
 }
 
+/* Additional design tokens, theme toggle and component styles */
+:root {
+    --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    --font-serif: 'Merriweather', Georgia, 'Times New Roman', serif;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --max-content-width: 1100px;
+    --focus-ring: 3px solid rgba(3,102,255,0.18);
+}
+
+/* Dark theme variables applied when data-theme="dark" on root */
+[data-theme="dark"] {
+    --primary-color: #d6e7ff;
+    --secondary-color: #66c2ff;
+    --accent-color: #3AA0FF;
+    --text-color: #e6f0ff;
+    --text-light: #c8dbf6;
+    --text-lighter: #9fb9df;
+    --background-color: #0b1117;
+    --background-light: #07101a;
+    --border-color: rgba(255,255,255,0.06);
+    --gradient-bg: linear-gradient(135deg, #0056D6 0%, #003A80 100%);
+    --shadow: 0 6px 18px rgba(0,0,0,0.6);
+    --shadow-hover: 0 10px 30px rgba(0,0,0,0.7);
+}
+
+/* Theme toggle in navbar */
+.nav-actions { display: flex; align-items: center; gap: 0.5rem; }
+.theme-toggle {
+    background: transparent;
+    border: 1px solid rgba(16,36,58,0.06);
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+.theme-toggle:hover { transform: translateY(-2px); }
+
+/* Floating CV button */
+.cv-float {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 1000;
+    background: var(--secondary-color);
+    color: white;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 28px;
+    box-shadow: 0 8px 28px rgba(3,102,255,0.18);
+    cursor: pointer;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.cv-float:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.cv-emoji { font-size: 1.05rem; margin-right: 8px; }
+
+/* CV modal classes */
+.cv-modal { display: none; position: fixed; inset: 0; background: rgba(10,14,20,0.8); z-index: 2000; align-items: center; justify-content: center; }
+.cv-modal.open { display: flex; }
+.cv-modal-inner { position: relative; width: 90vw; max-width: 900px; height: 80vh; box-shadow: 0 20px 48px rgba(3,102,255,0.14); border-radius: 16px; overflow: hidden; background: var(--background-color); }
+.cv-modal-close { position: absolute; top: 12px; right: 16px; background: transparent; border: none; color: var(--secondary-color); font-size: 1.6rem; cursor: pointer; z-index: 10; }
+.cv-iframe { width: 100%; height: 100%; border: 0; background: transparent; }
+
+/* Focus-visible accessibility */
+:focus { outline: none; }
+:focus-visible { outline: var(--focus-ring); outline-offset: 3px; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
 /* Certifications styles */
 .certifications { padding: 4rem 0; background: var(--background-color); }
 .cert-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; }
