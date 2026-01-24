@@ -925,3 +925,12 @@ h1, h2, h3, h4, h5, h6 {
         transform: translateY(0);
     }
 }
+
+/* Ensure content is visible even if JS fails to add .in-view (prevent sections disappearing) */
+.section-title,
+.project-card,
+.dashboard-item,
+.skill-category {
+    opacity: 1 !important;
+    transform: none !important;
+}
