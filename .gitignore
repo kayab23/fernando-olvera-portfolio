@@ -32,6 +32,9 @@ exports/*.pdf
 exports/*.mp4
 !exports/cv_final.pdf
 
+# Archive folder inside exports is allowed, but ignore loose PDFs in exports root
+exports/*.pdf
+
 # Archivos de respaldo
 *.bak
 *.backup
