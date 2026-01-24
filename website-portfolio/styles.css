@@ -591,12 +591,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tech-badge {
-    background: var(--primary-color);
-    color: white;
+    background: var(--background-light);
+    color: var(--secondary-color);
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 500;
+    border: 1px solid var(--border-color);
 }
 
 /* Contact Section */
