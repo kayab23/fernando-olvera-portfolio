@@ -880,6 +880,47 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(0,0,0,0.5);
 }
 
+/* Ensure key text elements have sufficient contrast in dark mode */
+[data-theme="dark"] body,
+[data-theme="dark"] .nav-link,
+[data-theme="dark"] .nav-logo h2,
+[data-theme="dark"] .nav-actions .theme-toggle,
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .section-subtitle,
+[data-theme="dark"] .project-title,
+[data-theme="dark"] .project-description,
+[data-theme="dark"] .project-tech,
+[data-theme="dark"] .tech-tag,
+[data-theme="dark"] .tech-badge,
+[data-theme="dark"] .dashboard-item h3,
+[data-theme="dark"] .dashboard-item p,
+[data-theme="dark"] .stat-number,
+[data-theme="dark"] .stat-label,
+[data-theme="dark"] .cert-card h4,
+[data-theme="dark"] .contact-item h3,
+[data-theme="dark"] .contact-item p,
+[data-theme="dark"] .contact-cta h3,
+[data-theme="dark"] .contact-cta p {
+    color: var(--text-color) !important;
+}
+
+/* Mobile nav background in dark theme */
+[data-theme="dark"] .nav-menu {
+    background: var(--background-light);
+}
+
+/* Skill bars and progress contrast */
+[data-theme="dark"] .skill-bar { background: rgba(255,255,255,0.04); }
+[data-theme="dark"] .skill-progress { background: var(--gradient-bg); }
+
+/* Ensure badges readable */
+[data-theme="dark"] .tech-tag { background: rgba(255,255,255,0.02); border-color: rgba(255,255,255,0.04); }
+
+/* Keep hero text visible on dark gradient */
+[data-theme="dark"] .hero-title,
+[data-theme="dark"] .hero-subtitle,
+[data-theme="dark"] .hero-description { color: var(--text-color) !important; }
+
 /* Theme toggle in navbar */
 .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
 .theme-toggle {
@@ -983,5 +1024,4 @@ h1, h2, h3, h4, h5, h6 {
 .dashboard-item,
 .skill-category {
     opacity: 1 !important;
-    transform: none !important;
 }
