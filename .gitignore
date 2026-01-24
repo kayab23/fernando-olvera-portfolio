@@ -47,3 +47,15 @@ npm-debug.log*
 # Archivos personales temporales
 profile-photo-temp.*
 cv_draft_*
+
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Editor / OS
+.vscode/
+.pytest_cache/
+.DS_Store
