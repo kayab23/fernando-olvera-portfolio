@@ -809,9 +809,12 @@
     const cvBtn = document.getElementById('cv-float-btn');
     const cvModal = document.getElementById('cv-modal');
     const cvClose = document.getElementById('cv-modal-close');
+
     cvBtn.onclick = () => { cvModal.style.display = 'flex'; document.body.style.overflow = 'hidden'; };
     cvClose.onclick = () => { cvModal.style.display = 'none'; document.body.style.overflow = ''; };
     cvModal.onclick = (e) => { if(e.target === cvModal) { cvModal.style.display = 'none'; document.body.style.overflow = ''; } };
+
+
 
 
     // Tooltip breve
