@@ -725,6 +725,23 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 2rem;
 }
 
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(16,36,58,0.08);
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.contact-form .form-row { max-width: 420px; margin: 0.25rem auto; }
+
+.contact-form button { min-width: 140px; }
+
+@media (prefers-reduced-motion:reduce){ .contact-form button{ transition:none; } }
+
 /* Footer */
 .footer {
     background: var(--background-light);

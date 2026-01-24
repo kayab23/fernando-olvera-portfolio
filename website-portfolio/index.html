@@ -761,9 +761,29 @@
                 <div class="contact-cta">
                     <h3>¿Listo para colaborar?</h3>
                     <p>Estoy disponible para proyectos de análisis de datos, desarrollo de PWAs y consultoría en Business Intelligence.</p>
-                    <a href="mailto:ferdesarrolloapps@gmail.com" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i> Enviar Email
-                    </a>
+
+                    <!-- Contact form (EmailJS integration). Replace SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY with your EmailJS credentials -->
+                    <form id="contact-form" class="contact-form" aria-label="Formulario de contacto">
+                        <div class="form-row">
+                            <input type="text" name="from_name" id="from_name" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="email" name="reply_to" id="reply_to" placeholder="Tu correo" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" name="subject" id="subject" placeholder="Asunto" required>
+                        </div>
+                        <div class="form-row">
+                            <textarea name="message" id="message" rows="4" placeholder="Mensaje" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <button type="submit" class="btn btn-primary" id="contact-submit"><i class="fas fa-paper-plane"></i> Enviar</button>
+                            <a id="contact-fallback" href="mailto:ferdesarrolloapps@gmail.com" class="btn btn-white" style="margin-left:8px;">Enviar por correo</a>
+                        </div>
+                        <div id="contact-status" aria-live="polite" style="margin-top:.75rem;color:var(--text-light);"></div>
+                    </form>
+
+                    <p style="margin-top:1rem;font-size:0.95rem;color:var(--text-lighter);">Si no configuras EmailJS, puedes usar el botón "Enviar por correo".</p>
                 </div>
             </div>
         </div>
@@ -818,6 +838,61 @@
     const cvBtn = document.getElementById('cv-float-btn');
     const cvModal = document.getElementById('cv-modal');
     const cvClose = document.getElementById('cv-modal-close');
+    
+    /* EmailJS contact form handler - requires EmailJS account
+       Steps:
+       1. Create account at https://www.emailjs.com/
+       2. Add an email service (Gmail, SMTP, etc.) and note SERVICE_ID
+       3. Create an email template and note TEMPLATE_ID (template should use variables: from_name, reply_to, subject, message)
+       4. Get your PUBLIC_KEY from EmailJS (also called user ID)
+       5. Replace SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY below
+    */
+    (function(){
+        const form = document.getElementById('contact-form');
+        const status = document.getElementById('contact-status');
+        const fallback = document.getElementById('contact-fallback');
+        // Replace these with your EmailJS values
+        const EMAILJS_SERVICE_ID = 'SERVICE_ID';
+        const EMAILJS_TEMPLATE_ID = 'TEMPLATE_ID';
+        const EMAILJS_PUBLIC_KEY = 'PUBLIC_KEY';
+
+        // Initialize EmailJS if available
+        if (window.emailjs && EMAILJS_PUBLIC_KEY !== 'PUBLIC_KEY') {
+            try { emailjs.init(EMAILJS_PUBLIC_KEY); } catch (e) { /* ignore */ }
+        }
+
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            status.textContent = 'Enviando...';
+            const data = {
+                from_name: form.from_name.value,
+                reply_to: form.reply_to.value,
+                subject: form.subject.value,
+                message: form.message.value
+            };
+
+            // If EmailJS not configured, fallback to mailto
+            if (!(window.emailjs && EMAILJS_PUBLIC_KEY !== 'PUBLIC_KEY')) {
+                status.textContent = 'EmailJS no configurado — abriendo cliente de correo...';
+                const mailto = `mailto:ferdesarrolloapps@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent('De: ' + data.from_name + ' (' + data.reply_to + ')\n\n' + data.message)}`;
+                window.location.href = mailto;
+                return;
+            }
+
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data)
+                .then(function(){
+                    status.style.color = 'var(--secondary-color)';
+                    status.textContent = 'Mensaje enviado. Gracias!';
+                    form.reset();
+                }, function(error){
+                    status.style.color = '#ff6b6b';
+                    status.textContent = 'Error al enviar el mensaje. Usando fallback...';
+                    // fallback to mailto
+                    const mailto = `mailto:ferdesarrolloapps@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent('De: ' + data.from_name + ' (' + data.reply_to + ')\n\n' + data.message)}`;
+                    window.location.href = mailto;
+                });
+        });
+    })();
 
     cvBtn.onclick = () => { cvModal.classList.add('open'); document.body.style.overflow = 'hidden'; };
     cvClose.onclick = () => { cvModal.classList.remove('open'); document.body.style.overflow = ''; };
