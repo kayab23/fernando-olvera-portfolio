@@ -829,6 +829,57 @@ h1, h2, h3, h4, h5, h6 {
     --shadow-hover: 0 10px 30px rgba(0,0,0,0.7);
 }
 
+/* Dark-mode component overrides to ensure readable contrast */
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .dashboard-item,
+[data-theme="dark"] .cert-card,
+[data-theme="dark"] .pdf-modal-content,
+[data-theme="dark"] .cv-modal-inner {
+    background: var(--background-light);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+[data-theme="dark"] .project-content,
+[data-theme="dark"] .dashboard-item h3,
+[data-theme="dark"] .project-description,
+[data-theme="dark"] .dashboard-item p,
+[data-theme="dark"] .cert-card h4 {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .btn-white {
+    background: transparent;
+    color: var(--text-light);
+    box-shadow: none;
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+[data-theme="dark"] .contact {
+    background: var(--background-light);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .contact .section-title::after {
+    background: var(--text-color);
+}
+
+[data-theme="dark"] .contact-item i {
+    color: var(--secondary-color);
+}
+
+[data-theme="dark"] .contact-item p,
+[data-theme="dark"] .contact-item h3,
+[data-theme="dark"] .contact-cta h3,
+[data-theme="dark"] .contact-cta p {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .dashboard-overlay {
+    background: rgba(0,0,0,0.5);
+}
+
 /* Theme toggle in navbar */
 .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
 .theme-toggle {
