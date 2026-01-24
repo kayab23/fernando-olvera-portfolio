@@ -24,9 +24,7 @@ def minify_css(text: str) -> str:
 
 
 def minify_js(text: str) -> str:
-    # remove // comments
-    text = re.sub(r'//.*', '', text)
-    # remove /* */ comments
+    # remove /* */ comments only (avoid stripping '//' inside strings like https://)
     text = re.sub(r'/\*.*?\*/', '', text, flags=re.S)
     # collapse whitespace
     text = re.sub(r'\s+', ' ', text)
