@@ -520,6 +520,59 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-hover);
 }
 
+/* Make dashboard gallery cards match the visual style of project cards */
+.dashboard-item.project-card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.dashboard-item.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.dashboard-item.project-card .dashboard-preview {
+    height: 200px;
+    background: var(--gradient-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.dashboard-item.project-card .dashboard-placeholder {
+    border-radius: 0;
+    background: transparent;
+}
+
+.dashboard-item.project-card .project-content {
+    padding: 1.5rem;
+}
+
+.dashboard-item.project-card .project-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.dashboard-item.project-card .project-description {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.dashboard-item.project-card .dashboard-tech,
+.dashboard-item.project-card .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+
 .dashboard-preview {
     position: relative;
     height: 200px;
