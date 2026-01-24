@@ -501,9 +501,10 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--background-light);
 }
 
-.dashboard-grid {
+.dashboard-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Match project cards minimum width so dashboard cards keep same size */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
 }
 
@@ -741,6 +742,9 @@ h1, h2, h3, h4, h5, h6 {
 .contact-form button { min-width: 140px; }
 
 @media (prefers-reduced-motion:reduce){ .contact-form button{ transition:none; } }
+
+/* Prominent confirmation styling */
+#contact-status strong { font-size: 1rem; display: inline-block; padding: 8px 12px; background: rgba(102,194,255,0.12); border-radius: 8px; }
 
 /* Footer */
 .footer {

@@ -778,7 +778,6 @@
                         </div>
                         <div class="form-row">
                             <button type="submit" class="btn btn-primary" id="contact-submit"><i class="fas fa-paper-plane"></i> Enviar</button>
-                            <a id="contact-fallback" href="mailto:ferdesarrolloapps@gmail.com" class="btn btn-white" style="margin-left:8px;">Enviar por correo</a>
                         </div>
                         <div id="contact-status" aria-live="polite" style="margin-top:.75rem;color:var(--text-light);"></div>
                     </form>
@@ -871,26 +870,24 @@
                 message: form.message.value
             };
 
-            // If EmailJS not configured, fallback to mailto
+            // If EmailJS not configured, show message (no mailto fallback)
             if (!(window.emailjs && EMAILJS_PUBLIC_KEY !== 'PUBLIC_KEY')) {
-                status.textContent = 'EmailJS no configurado — abriendo cliente de correo...';
-                const mailto = `mailto:ferdesarrolloapps@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent('De: ' + data.from_name + ' (' + data.reply_to + ')\n\n' + data.message)}`;
-                window.location.href = mailto;
+                status.style.color = '#ff6b6b';
+                status.textContent = 'Error: EmailJS no configurado. Por favor configura EmailJS para habilitar el envío desde la web.';
                 return;
             }
 
-            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data)
-                .then(function(){
-                    status.style.color = 'var(--secondary-color)';
-                    status.textContent = 'Mensaje enviado. Gracias!';
-                    form.reset();
-                }, function(error){
-                    status.style.color = '#ff6b6b';
-                    status.textContent = 'Error al enviar el mensaje. Usando fallback...';
-                    // fallback to mailto
-                    const mailto = `mailto:ferdesarrolloapps@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent('De: ' + data.from_name + ' (' + data.reply_to + ')\n\n' + data.message)}`;
-                    window.location.href = mailto;
-                });
+                emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data)
+                    .then(function(){
+                        status.style.color = 'var(--secondary-color)';
+                        // more prominent confirmation
+                        status.innerHTML = '<strong style="color:var(--secondary-color);">✓ Mensaje enviado. Gracias por contactarme.</strong>';
+                        form.reset();
+                    }, function(error){
+                        status.style.color = '#ff6b6b';
+                        status.textContent = 'Error al enviar el mensaje. Por favor inténtalo de nuevo más tarde.';
+                        console.error('EmailJS send error:', error);
+                    });
         });
     })();
 
