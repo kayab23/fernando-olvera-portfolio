@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+  <rect width="100%" height="100%" fill="#fff" />
+  <defs>
+    <linearGradient id="g2" x1="0" x2="1">
+      <stop offset="0%" stop-color="#00A3B4" />
+      <stop offset="100%" stop-color="#007BFF" />
+    </linearGradient>
+  </defs>
+  <rect x="40" y="40" width="1120" height="620" rx="12" fill="url(#g2)" opacity="0.12" />
+  <text x="60" y="120" font-family="Inter, Arial, sans-serif" font-size="36" fill="#0B3D91">DasPresu - Presupuesto</text>
+  <text x="60" y="180" font-family="Inter, Arial, sans-serif" font-size="18" fill="#10243A">Control financiero • Desglose por categoría</text>
+  <g transform="translate(60,240)">
+    <rect width="700" height="220" rx="8" fill="#eef6ff" />
+    <text x="24" y="48" font-size="20" fill="#0056D6">Resumen KPI</text>
+  </g>
+</svg>

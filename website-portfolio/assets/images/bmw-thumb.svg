@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0%" stop-color="#3AA0FF" />
+      <stop offset="100%" stop-color="#0056D6" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="#f4f8ff" />
+  <rect x="40" y="40" width="1120" height="620" rx="12" fill="url(#g1)" opacity="0.18" />
+  <text x="60" y="120" font-family="Inter, Arial, sans-serif" font-size="36" fill="#0B3D91">BMW - Esquema y Dispersión</text>
+  <text x="60" y="180" font-family="Inter, Arial, sans-serif" font-size="18" fill="#10243A">Análisis por dealer • Dispersión • Outliers</text>
+  <g transform="translate(60,240)" fill="#ffffff" opacity="0.9">
+    <rect width="320" height="180" rx="8" fill="#0B3D91" opacity="0.12" />
+    <text x="24" y="48" font-size="20" fill="#0B3D91">Visual 1</text>
+  </g>
+  <g transform="translate(420,240)" fill="#ffffff" opacity="0.9">
+    <rect width="320" height="180" rx="8" fill="#0B3D91" opacity="0.12" />
+    <text x="24" y="48" font-size="20" fill="#0B3D91">Visual 2</text>
+  </g>
+</svg>
